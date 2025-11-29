@@ -61,6 +61,7 @@ import {
 } from '@heroicons/react/24/outline';
 
 
+
 interface FAQItem {
   id: number;
   question: string;
@@ -1221,30 +1222,30 @@ const features: Feature[] = [
     }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
+  // const handleSubmit = async (e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   setIsSubmitting(true);
     
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 2000));
+  //   // Simulate API call
+  //   await new Promise(resolve => setTimeout(resolve, 2000));
     
-    setIsSubmitting(false);
-    setIsSubmitted(true);
+  //   setIsSubmitting(false);
+  //   setIsSubmitted(true);
     
-    // Reset form after success
-    setTimeout(() => {
-      setFormData({
-        name: '',
-        mobile: '',
-        email: '',
-        preferredLocation: '',
-        budget: '',
-        propertyType: '',
-        message: ''
-      });
-      setIsSubmitted(false);
-    }, 5000);
-  };
+  //   // Reset form after success
+  //   setTimeout(() => {
+  //     setFormData({
+  //       name: '',
+  //       mobile: '',
+  //       email: '',
+  //       preferredLocation: '',
+  //       budget: '',
+  //       propertyType: '',
+  //       message: ''
+  //     });
+  //     setIsSubmitted(false);
+  //   }, 5000);
+  // };
 
   const contactInfo = [
     {
@@ -1345,9 +1346,13 @@ const features: Feature[] = [
     ? faqs 
     : faqs.filter(faq => faq.category === activeCategory);
 
+
+    // enquery form
+    
+
   return (
     <>
-     <div className="relative h-screen min-h-[400px] bg-gray-900">
+     <div className="relative h-screen min-h-[700px] bg-gray-900">
       {/* Background Image with Overlay */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -1495,6 +1500,8 @@ const features: Feature[] = [
         </div>
       </div>
     </div>
+    {/* //  end of 1st */}
+    
     {/* 2nd */}
     <section className="py-16 bg-gray-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -1622,6 +1629,88 @@ const features: Feature[] = [
         </div>
       </div>
     </section>
+    {/* Search Form */}
+           <div className="rounded-2xl bg-white/10 p-1 backdrop-blur-sm max-w-screen-lg mx-auto">
+  {/* Message Block */}
+  
+  <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">
+            Get the List of <span className="text-blue-600">Top Properties in Noida</span>
+          </h2>
+          <p className="text-sm text-gray-600 max-w-2xl mx-auto">
+            Send enquiry, and we'll send you contact details in seconds for free.
+          </p>
+        </div>
+
+  <div className="flex flex-col gap-4 rounded-xl bg-white p-6 shadow-2xl lg:flex-row lg:items-center lg:gap-2">
+    {/* Mobile Number Input */}
+    <div className="flex-1">
+      <label htmlFor="mobile-number" className="mb-2 block text-sm font-medium text-gray-700">
+        Mobile Number
+      </label>
+      <div className="relative">
+        <input
+          type="tel"
+          id="mobile-number"
+          placeholder="Enter your mobile number"
+          // value={mobileNumber}
+          // onChange={(e) => setMobileNumber(e.target.value)}
+          className="w-full rounded-lg border border-gray-300 py-3 pl-10 pr-4 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+      </div>
+    </div>
+
+    {/* Property Type */}
+    <div className="flex-1">
+      <label htmlFor="property-type" className="mb-2 block text-sm font-medium text-gray-700">
+        Property Type
+      </label>
+      <select
+        id="property-type"
+        value={propertyType}
+        onChange={(e) => setPropertyType(e.target.value)}
+        className="w-full rounded-lg border border-gray-300 py-3 px-4 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+      >
+        {propertyTypes.map((type) => (
+          <option key={type.value} value={type.value}>
+            {type.label}
+          </option>
+        ))}
+      </select>
+    </div>
+
+    {/* Price Range */}
+    <div className="flex-1">
+      <label htmlFor="price-range" className="mb-2 block text-sm font-medium text-gray-700">
+        Price Range
+      </label>
+      <select
+        id="price-range"
+        value={priceRange}
+        onChange={(e) => setPriceRange(e.target.value)}
+        className="w-full rounded-lg border border-gray-300 py-3 px-4 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+      >
+        {priceRanges.map((range) => (
+          <option key={range.value} value={range.value}>
+            {range.label}
+          </option>
+        ))}
+      </select>
+    </div>
+
+    {/* Send Enquiry Button */}
+    <div className="lg:pt-6">
+      <button
+        type="button"
+        className="flex w-full items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-600 px-8 py-3 font-semibold text-white transition-all hover:from-cyan-600 hover:to-blue-700 hover:shadow-lg lg:w-auto"
+      >
+        Send Enquiry
+      </button>
+    </div>
+  </div>
+</div>
+
+
     {/* 3rd */}
     <section className="py-16 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -2769,17 +2858,17 @@ const features: Feature[] = [
               </div>
             ) : (
               <>
-                <div className="text-center mb-8">
+                {/* <div className="text-center mb-8">
                   <h3 className="text-2xl font-bold text-gray-900 mb-2">
                     Get Free Consultation
                   </h3>
                   <p className="text-gray-600">
                     Fill the form and our expert will help you find the perfect property
                   </p>
-                </div>
+                </div> */}
 
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  {/* Name Field */}
+                {/* <form onSubmit={handleSubmit} className="space-y-6">
+                  
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
                       <UserIcon className="h-4 w-4 inline mr-2" />
@@ -2798,7 +2887,7 @@ const features: Feature[] = [
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {/* Mobile Field */}
+                    
                     <div>
                       <label htmlFor="mobile" className="block text-sm font-medium text-gray-700 mb-2">
                         <DevicePhoneMobileIcon className="h-4 w-4 inline mr-2" />
@@ -2816,7 +2905,6 @@ const features: Feature[] = [
                       />
                     </div>
 
-                    {/* Email Field */}
                     <div>
                       <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
                         <EnvelopeIcon className="h-4 w-4 inline mr-2" />
@@ -2836,7 +2924,7 @@ const features: Feature[] = [
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {/* Preferred Location */}
+                    
                     <div>
                       <label htmlFor="preferredLocation" className="block text-sm font-medium text-gray-700 mb-2">
                         <MapPinIcon className="h-4 w-4 inline mr-2" />
@@ -2856,7 +2944,6 @@ const features: Feature[] = [
                       </select>
                     </div>
 
-                    {/* Budget */}
                     <div>
                       <label htmlFor="budget" className="block text-sm font-medium text-gray-700 mb-2">
                         <CurrencyRupeeIcon className="h-4 w-4 inline mr-2" />
@@ -2876,8 +2963,6 @@ const features: Feature[] = [
                       </select>
                     </div>
                   </div>
-
-                  {/* Property Type */}
                   <div>
                     <label htmlFor="propertyType" className="block text-sm font-medium text-gray-700 mb-2">
                       <BuildingOfficeIcon className="h-4 w-4 inline mr-2" />
@@ -2896,8 +2981,6 @@ const features: Feature[] = [
                       ))}
                     </select>
                   </div>
-
-                  {/* Message */}
                   <div>
                     <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
                       Additional Requirements
@@ -2912,8 +2995,6 @@ const features: Feature[] = [
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors resize-none"
                     />
                   </div>
-
-                  {/* Submit Button */}
                   <button
                     type="submit"
                     disabled={isSubmitting}
@@ -2931,12 +3012,11 @@ const features: Feature[] = [
                       </>
                     )}
                   </button>
-
-                  {/* Privacy Note */}
                   <p className="text-center text-sm text-gray-500">
                     By submitting, you agree to our Privacy Policy and consent to receive property recommendations.
                   </p>
-                </form>
+                </form> */}
+                
               </>
             )}
           </div>
