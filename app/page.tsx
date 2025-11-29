@@ -347,72 +347,72 @@ export default function Home() {
   ];
   ///3rd 
   const locations: Location[] = [
-    {
-      id: 1,
-      name: "Gurugram",
-      area: "Cyber City & DLF Phases",
-      description: "India's corporate hub with premium residential complexes and world-class infrastructure",
-      image: "https://images.unsplash.com/photo-1592210454359-904b3ef8e8a6?w=600",
-      properties: "2,500+",
-      avgPrice: "₹1.2Cr - ₹5Cr",
-      growth: "12%",
-      rating: 4.8,
-      tags: ["Corporate Hub", "Premium", "Metro Connected"]
-    },
+    // {
+    //   id: 1,
+    //   name: "Gurugram",
+    //   area: "Cyber City & DLF Phases",
+    //   description: "India's corporate hub with premium residential complexes and world-class infrastructure",
+    //   image: "https://images.unsplash.com/photo-1592210454359-904b3ef8e8a6?w=600",
+    //   properties: "2,500+",
+    //   avgPrice: "₹1.2Cr - ₹5Cr",
+    //   growth: "12%",
+    //   rating: 4.8,
+    //   tags: ["Corporate Hub", "Premium", "Metro Connected"]
+    // },
     {
       id: 2,
       name: "Noida",
       area: "Sector 150 & Expressway",
       description: "Modern planned city with excellent connectivity to Delhi and growing IT sector",
-      image: "https://images.unsplash.com/photo-1580651315530-69c8e0026374?w=600",
+      image: "https://unsplash.com/photos/white-and-brown-concrete-building-under-blue-sky-during-daytime-_TPTXZd9mOo?w=600",
       properties: "1,800+",
       avgPrice: "₹80L - ₹3.5Cr",
       growth: "15%",
       rating: 4.6,
       tags: ["Planned City", "Expressway", "IT Hub"]
     },
-    {
-      id: 3,
-      name: "Delhi",
-      area: "South & Central Delhi",
-      description: "Prime locations with heritage properties and premium residential areas",
-      image: "https://images.unsplash.com/photo-1580651315530-69c8e0026374?w=600",
-      properties: "3,200+",
-      avgPrice: "₹2Cr - ₹20Cr+",
-      growth: "8%",
-      rating: 4.9,
-      tags: ["Prime Location", "Heritage", "Established"]
-    },
+    // {
+    //   id: 3,
+    //   name: "Delhi",
+    //   area: "South & Central Delhi",
+    //   description: "Prime locations with heritage properties and premium residential areas",
+    //   image: "https://images.unsplash.com/photo-1580651315530-69c8e0026374?w=600",
+    //   properties: "3,200+",
+    //   avgPrice: "₹2Cr - ₹20Cr+",
+    //   growth: "8%",
+    //   rating: 4.9,
+    //   tags: ["Prime Location", "Heritage", "Established"]
+    // },
     {
       id: 4,
       name: "Greater Noida",
       area: "Knowledge Park & Sports City",
       description: "Affordable housing with future growth potential and educational institutions",
-      image: "https://images.unsplash.com/photo-1567598475180-5c165c807b34?w=600",
+      image: "https://images.unsplash.com/photo-1580651315530-69c8e0026374?w=600",
       properties: "1,200+",
       avgPrice: "₹40L - ₹1.8Cr",
       growth: "18%",
       rating: 4.3,
       tags: ["Affordable", "Growth Area", "Educational"]
     },
-    {
-      id: 5,
-      name: "Faridabad",
-      area: "Sector 21 & Greenfield",
-      description: "Industrial hub with affordable housing options and good connectivity",
-      image: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600",
-      properties: "900+",
-      avgPrice: "₹35L - ₹1.5Cr",
-      growth: "10%",
-      rating: 4.2,
-      tags: ["Industrial", "Affordable", "Developing"]
-    },
+    // {
+    //   id: 5,
+    //   name: "Faridabad",
+    //   area: "Sector 21 & Greenfield",
+    //   description: "Industrial hub with affordable housing options and good connectivity",
+    //   image: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600",
+    //   properties: "900+",
+    //   avgPrice: "₹35L - ₹1.5Cr",
+    //   growth: "10%",
+    //   rating: 4.2,
+    //   tags: ["Industrial", "Affordable", "Developing"]
+    // },
     {
       id: 6,
       name: "Ghaziabad",
       area: "Vaishali & Indirapuram",
       description: "Rapidly developing area with excellent metro connectivity to Delhi",
-      image: "https://images.unsplash.com/photo-1600585154340-9633f73f16d1?w=600",
+      image: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600",
       properties: "1,100+",
       avgPrice: "₹45L - ₹2Cr",
       growth: "14%",
@@ -687,44 +687,44 @@ const features: Feature[] = [
       availableUnits: 62,
       amenities: ["River View", "Boating", "Jogging Track", "Yoga Deck"]
     },
-    {
-      id: 5,
-      name: "Tech Park Residency",
-      builder: "Innovate Spaces",
-      location: "Cyber City, Gurugram",
-      price: "₹90L - ₹2.1Cr",
-      pricePerSqft: "₹10,500/sqft",
-      possessionDate: "Oct 2025",
-      launchDate: "1 Month Ago",
-      image: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=600",
-      unitTypes: ["Studio", "2 BHK", "3 BHK"],
-      offers: ["Waived Stamp Duty", "Co-working Space", "Tech Package"],
-      reraId: "HRERA-567890",
-      status: "almost-sold",
-      rating: 4.5,
-      totalUnits: 250,
-      availableUnits: 8,
-      amenities: ["Co-working", "Cafeteria", "Tech Lounge", "Fiber Internet"]
-    },
-    {
-      id: 6,
-      name: "Heritage Homes",
-      builder: "Classic Constructions",
-      location: "South Delhi",
-      price: "₹3Cr - ₹8Cr",
-      pricePerSqft: "₹25,000/sqft",
-      possessionDate: "Dec 2024",
-      launchDate: "Limited Units",
-      image: "https://images.unsplash.com/photo-1588880331179-bc9b93a8cb5e?w=600",
-      unitTypes: ["3 BHK", "4 BHK", "Duplex"],
-      offers: ["Heritage Premium", "Customization", "Priority Location"],
-      reraId: "DLRERA-112233",
-      status: "hot-selling",
-      rating: 4.9,
-      totalUnits: 80,
-      availableUnits: 5,
-      amenities: ["Heritage Design", "Large Balcony", "Servant Quarter", "Parking"]
-    }
+    // {
+    //   id: 5,
+    //   name: "Tech Park Residency",
+    //   builder: "Innovate Spaces",
+    //   location: "Cyber City, Gurugram",
+    //   price: "₹90L - ₹2.1Cr",
+    //   pricePerSqft: "₹10,500/sqft",
+    //   possessionDate: "Oct 2025",
+    //   launchDate: "1 Month Ago",
+    //   image: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=600",
+    //   unitTypes: ["Studio", "2 BHK", "3 BHK"],
+    //   offers: ["Waived Stamp Duty", "Co-working Space", "Tech Package"],
+    //   reraId: "HRERA-567890",
+    //   status: "almost-sold",
+    //   rating: 4.5,
+    //   totalUnits: 250,
+    //   availableUnits: 8,
+    //   amenities: ["Co-working", "Cafeteria", "Tech Lounge", "Fiber Internet"]
+    // },
+    // {
+    //   id: 6,
+    //   name: "Heritage Homes",
+    //   builder: "Classic Constructions",
+    //   location: "South Delhi",
+    //   price: "₹3Cr - ₹8Cr",
+    //   pricePerSqft: "₹25,000/sqft",
+    //   possessionDate: "Dec 2024",
+    //   launchDate: "Limited Units",
+    //   image: "https://images.unsplash.com/photo-1588880331179-bc9b93a8cb5e?w=600",
+    //   unitTypes: ["3 BHK", "4 BHK", "Duplex"],
+    //   offers: ["Heritage Premium", "Customization", "Priority Location"],
+    //   reraId: "DLRERA-112233",
+    //   status: "hot-selling",
+    //   rating: 4.9,
+    //   totalUnits: 80,
+    //   availableUnits: 5,
+    //   amenities: ["Heritage Design", "Large Balcony", "Servant Quarter", "Parking"]
+    // }
   ];
 
   const getStatusBadge = (status: Project['status']) => {
@@ -1347,7 +1347,7 @@ const features: Feature[] = [
 
   return (
     <>
-     <div className="relative h-screen min-h-[700px] bg-gray-900">
+     <div className="relative h-screen min-h-[400px] bg-gray-900">
       {/* Background Image with Overlay */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -1355,9 +1355,8 @@ const features: Feature[] = [
           backgroundImage: 'url(https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80)',
         }}
       >
-        <div className="absolute inset-0 bg-black/50 bg-gradient-to-r from-black/70 to-black/40"></div>
+        {/* <div className="absolute inset-0 bg-black/50 bg-gradient-to-r from-black/70 to-black/40"></div> */}
       </div>
-
       {/* Content */}
       <div className="relative z-10 flex h-full items-center">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -1489,7 +1488,6 @@ const features: Feature[] = [
           </div>
         </div>
       </div>
-
       {/* Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
         <div className="animate-bounce">
@@ -2068,7 +2066,7 @@ const features: Feature[] = [
         </div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {projects.map((project) => (
             <div
               key={project.id}
@@ -2256,7 +2254,7 @@ const features: Feature[] = [
         </div>
 
         {/* Testimonials Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 mb-12">
           {testimonials.slice(0, 4).map((testimonial) => (
             <div
               key={testimonial.id}
