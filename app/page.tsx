@@ -1360,7 +1360,69 @@ const features: Feature[] = [
 
 
     // enquery form
-    
+    const [isRtl, setIsRtl] = useState(false);
+
+  const toggleDirection = () => {
+    setIsRtl(!isRtl);
+  };
+
+      const projects2 = [
+    {
+      id: 1,
+      title: "Skyline Residences",
+      location: "Rohini Sector 7, Delhi",
+      price: "₹2.5 Cr",
+      area: "1800 sq.ft.",
+      image: "/project1.jpg",
+      status: "Pre Launch"
+    },
+    {
+      id: 2,
+      title: "Luxuria Greens",
+      location: "Dilshad Garden, Delhi",
+      price: "₹1.8 Cr",
+      area: "1500 sq.ft.",
+      image: "/project2.jpg",
+      status: "Pre Launch"
+    },
+    {
+      id: 3,
+      title: "Skyline Residences",
+      location: "Rohini Sector 7, Delhi",
+      price: "₹2.5 Cr",
+      area: "1800 sq.ft.",
+      image: "/project1.jpg",
+      status: "Pre Launch"
+    },
+    {
+      id: 4,
+      title: "Luxuria Greens",
+      location: "Dilshad Garden, Delhi",
+      price: "₹1.8 Cr",
+      area: "1500 sq.ft.",
+      image: "/project2.jpg",
+      status: "Pre Launch"
+    },
+    {
+      id: 5,
+      title: "Skyline Residences",
+      location: "Rohini Sector 7, Delhi",
+      price: "₹2.5 Cr",
+      area: "1800 sq.ft.",
+      image: "/project1.jpg",
+      status: "Pre Launch"
+    },
+    {
+      id: 2,
+      title: "Luxuria Greens",
+      location: "Dilshad Garden, Delhi",
+      price: "₹1.8 Cr",
+      area: "1500 sq.ft.",
+      image: "/project2.jpg",
+      status: "Pre Launch"
+    },
+    // Add more projects...
+  ];
 
   return (
     <>
@@ -1372,7 +1434,7 @@ const features: Feature[] = [
           backgroundImage: 'url(https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80)',
         }}
       >
-        {/* <div className="absolute inset-0 bg-black/50 bg-gradient-to-r from-black/70 to-black/40"></div> */}
+        <div className="absolute inset-0 bg-black/50 bg-gradient-to-r from-black/70 to-black/40"></div>
       </div>
       {/* Content */}
       <div className="relative z-10 flex h-full items-center">
@@ -1513,7 +1575,68 @@ const features: Feature[] = [
       </div>
     </div>
     {/* //  end of 1st */}
-    
+    <section className="py-8 bg-gray-50">
+      <div className="container mx-auto px-4">
+        <h2 className="text-2xl font-bold text-gray-800 mb-6">Pre Launch Projects</h2>
+        
+        {/* Toggle RTL */}
+        <button 
+          onClick={toggleDirection} 
+          className="mb-4 px-4 py-2 text-white bg-blue-600 rounded"
+        >
+          Toggle {isRtl ? "LTR" : "RTL"}
+        </button>
+
+        {/* Project Slider with LTR/RTL support */}
+        <div
+          className={`overflow-x-auto ${isRtl ? 'rtl' : ''}`} // Add RTL class based on state
+          style={{ direction: isRtl ? 'rtl' : 'ltr' }} // Toggle the direction property
+        >
+          <div className="flex gap-4">
+            {projects2.map((project) => (
+              <div key={project.id} className="bg-white rounded-lg p-4 shadow-sm border">
+                <div className="flex items-start space-x-3">
+                  {/* Circular Project Image */}
+                  <div className="flex-shrink-0">
+                    <div className="w-16 h-16 rounded-full bg-gradient-to-r from-blue-400 to-purple-500 overflow-hidden">
+                      <div className="w-full h-full bg-gray-200 rounded-full flex items-center justify-center">
+                        <span className="text-xs text-gray-500">Img</span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Project Details */}
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-start justify-between">
+                      <h3 className="font-semibold text-gray-800 text-sm truncate">
+                        {project.title}
+                      </h3>
+                      <span className="bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded-full">
+                        {project.status}
+                      </span>
+                    </div>
+                    
+                    <p className="text-gray-500 text-xs mt-1 truncate">
+                      <i className="fas fa-map-marker-alt mr-1"></i>
+                      {project.location}
+                    </p>
+                    
+                    <div className="flex justify-between items-center mt-2">
+                      <span className="text-green-600 font-bold text-sm">
+                        {project.price}
+                      </span>
+                      <span className="text-blue-600 text-xs font-medium">
+                        {project.area}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
     {/* 2nd */}
     <section className="py-16 bg-gray-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
