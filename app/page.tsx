@@ -419,6 +419,18 @@ export default function Home() {
       growth: "14%",
       rating: 4.4,
       tags: ["Metro Connected", "Developing", "Affordable"]
+    },
+    {
+      id: 6,
+      name: "Yamiuna Expressway",
+      area: "Vaishali & Indirapuram",
+      description: "Rapidly developing area with excellent metro connectivity to Delhi",
+      image: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600",
+      properties: "1,100+",
+      avgPrice: "₹45L - ₹2Cr",
+      growth: "14%",
+      rating: 4.4,
+      tags: ["Metro Connected", "Developing", "Affordable"]
     }
   ];
   // 4th
@@ -1725,7 +1737,7 @@ const features: Feature[] = [
         </div>
 
         {/* Locations Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {locations.map((location) => (
             <Link 
               key={location.id} 
