@@ -417,7 +417,7 @@ export default function PreLaunchProjectsSlider() {
             </p>
           </div>
 
-          <div className="flex items-center gap-4">
+          {/* <div className="flex items-center gap-4">
             <button
               onClick={() => setIsRtl(!isRtl)}
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
@@ -453,7 +453,7 @@ export default function PreLaunchProjectsSlider() {
                 <FaChevronRight />
               </button>
             </div>
-          </div>
+          </div> */}
         </div>
 
         {/* Slider Container */}
