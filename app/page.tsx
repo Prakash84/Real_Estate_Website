@@ -1365,7 +1365,6 @@ const features: Feature[] = [
   const toggleDirection = () => {
     setIsRtl(!isRtl);
   };
-
       const projects2 = [
     {
       id: 1,
@@ -1575,17 +1574,17 @@ const features: Feature[] = [
       </div>
     </div>
     {/* //  end of 1st */}
-    <section className="py-8 bg-gray-50">
+     <section className="py-8 bg-gray-50">
       <div className="container mx-auto px-4">
         <h2 className="text-2xl font-bold text-gray-800 mb-6">Pre Launch Projects</h2>
         
         {/* Toggle RTL */}
-        <button 
+        {/* <button 
           onClick={toggleDirection} 
           className="mb-4 px-4 py-2 text-white bg-blue-600 rounded"
         >
           Toggle {isRtl ? "LTR" : "RTL"}
-        </button>
+        </button> */}
 
         {/* Project Slider with LTR/RTL support */}
         <div
