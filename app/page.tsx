@@ -1576,28 +1576,18 @@ const features: Feature[] = [
       </div>
     </div>
     {/* //  end of 1st */}
-     <section className="py-8 bg-gray-50">
+     {/* <section className="py-8 bg-gray-50">
       <div className="container mx-auto px-4">
         <h2 className="text-2xl font-bold text-gray-800 mb-6">Pre Launch Projects</h2>
         
-        {/* Toggle RTL */}
-        {/* <button 
-          onClick={toggleDirection} 
-          className="mb-4 px-4 py-2 text-white bg-blue-600 rounded"
-        >
-          Toggle {isRtl ? "LTR" : "RTL"}
-        </button> */}
-
-        {/* Project Slider with LTR/RTL support */}
         <div
-          className={`overflow-x-auto ${isRtl ? 'rtl' : ''}`} // Add RTL class based on state
-          style={{ direction: isRtl ? 'rtl' : 'ltr' }} // Toggle the direction property
+          className={`overflow-x-auto ${isRtl ? 'rtl' : ''}`} 
+          style={{ direction: isRtl ? 'rtl' : 'ltr' }} 
         >
           <div className="flex gap-4">
             {projects2.map((project) => (
               <div key={project.id} className="bg-white rounded-lg p-4 shadow-sm border">
                 <div className="flex items-start space-x-3">
-                  {/* Circular Project Image */}
                   <div className="flex-shrink-0">
                     <div className="w-16 h-16 rounded-full bg-gradient-to-r from-blue-400 to-purple-500 overflow-hidden">
                       <div className="w-full h-full bg-gray-200 rounded-full flex items-center justify-center">
@@ -1605,8 +1595,6 @@ const features: Feature[] = [
                       </div>
                     </div>
                   </div>
-                  
-                  {/* Project Details */}
                   <div className="flex-1 min-w-0">
                     <div className="flex items-start justify-between">
                       <h3 className="font-semibold text-gray-800 text-sm truncate">
@@ -1637,10 +1625,10 @@ const features: Feature[] = [
           </div>
         </div>
       </div>
-    </section>
-    <Prelaunch_section />
+    </section> */}
+    
     {/* 2nd */}
-    <section className="py-16 bg-gray-50">
+    <section className="py-13 bg-gray-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-12">
@@ -1766,51 +1754,39 @@ const features: Feature[] = [
         </div>
       </div>
     </section>
+    <Prelaunch_section />
     {/* Search Form */}
            <div className="rounded-2xl bg-white/10 p-1 backdrop-blur-sm max-w-screen-lg mx-auto">
   {/* Message Block */}
-  
   <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">
-            Get the List of <span className="text-blue-600">Top Properties in Noida</span>
-          </h2>
-          <p className="text-sm text-gray-600 max-w-2xl mx-auto">
-            Send enquiry, and we'll send you contact details in seconds for free.
-          </p>
-        </div>
+    <h2 className="text-3xl font-bold text-gray-900 mb-4">
+      Get the List of <span className="text-blue-600">Top Properties in Noida</span>
+    </h2>
+    <p className="text-sm text-gray-600 max-w-2xl mx-auto">
+      Send enquiry, and we'll send you contact details in seconds for free.
+    </p>
+  </div>
 
   <div className="flex flex-col gap-4 rounded-xl bg-white p-6 shadow-2xl lg:flex-row lg:items-center lg:gap-2">
-    {/* Mobile Number Input */}
+
+    {/* Name Input */}
     <div className="flex-1">
-      <label htmlFor="mobile-number" className="mb-2 block text-sm font-medium text-gray-700">
+      <label htmlFor="name" className="mb-2 block text-sm font-medium text-gray-700">
         Name
       </label>
       <div className="relative">
         <input
-          type="tel"
-          id="Name"
-          placeholder="Enter your mobile Name"
-          // value={mobileNumber}
-          // onChange={(e) => setMobileNumber(e.target.value)}
+          type="text"
+          id="name"
+          placeholder="Enter your name"
+          // value={name} 
+          // onChange={(e) => setName(e.target.value)}
           className="w-full rounded-lg border border-gray-300 py-3 pl-10 pr-4 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
       </div>
     </div>
-    <div className="flex-1">
-      <label htmlFor="mobile-number" className="mb-2 block text-sm font-medium text-gray-700">
-        Mobile Number
-      </label>
-      <div className="relative">
-        <input
-          type="tel"
-          id="mobile-number"
-          placeholder="Enter your mobile number"
-          // value={mobileNumber}
-          // onChange={(e) => setMobileNumber(e.target.value)}
-          className="w-full rounded-lg border border-gray-300 py-3 pl-10 pr-4 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
-        />
-      </div>
-    </div>
+
+    {/* Mobile Number Input */}
     <div className="flex-1">
       <label htmlFor="mobile-number" className="mb-2 block text-sm font-medium text-gray-700">
         Mobile Number
@@ -1827,7 +1803,9 @@ const features: Feature[] = [
       </div>
     </div>
 
-    {/* Property Type */}
+    
+
+    {/* Property Type Select */}
     <div className="flex-1">
       <label htmlFor="property-type" className="mb-2 block text-sm font-medium text-gray-700">
         Property Type
@@ -1846,7 +1824,7 @@ const features: Feature[] = [
       </select>
     </div>
 
-    {/* Price Range */}
+    {/* Price Range Select */}
     <div className="flex-1">
       <label htmlFor="price-range" className="mb-2 block text-sm font-medium text-gray-700">
         Price Range
@@ -1874,8 +1852,11 @@ const features: Feature[] = [
         Send Enquiry
       </button>
     </div>
+
   </div>
+
 </div>
+
 
 
     {/* 3rd */}
