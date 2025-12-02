@@ -60,6 +60,8 @@ import {
   ChatBubbleLeftRightIcon
 } from '@heroicons/react/24/outline';
 
+import Prelaunch_section from './components/Prelaunch_section';
+
 
 
 interface FAQItem {
@@ -1636,6 +1638,7 @@ const features: Feature[] = [
         </div>
       </div>
     </section>
+    <Prelaunch_section />
     {/* 2nd */}
     <section className="py-16 bg-gray-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">

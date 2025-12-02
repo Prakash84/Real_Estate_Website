@@ -1168,7 +1168,6 @@ export default function page() {
       category: "selling"
     }
   ];
-
   const categories2 = [
     { id: 'all', name: 'All Questions', count: faqs.length },
     { id: 'general', name: 'General', count: faqs.filter(f => f.category === 'general').length },
@@ -1176,7 +1175,6 @@ export default function page() {
     { id: 'selling', name: 'Selling', count: faqs.filter(f => f.category === 'selling').length },
     { id: 'legal', name: 'Legal', count: faqs.filter(f => f.category === 'legal').length }
   ];
-
   const toggleItem = (id: number) => {
     setOpenItems(prev =>
       prev.includes(id)
@@ -1184,13 +1182,9 @@ export default function page() {
         : [...prev, id]
     );
   };
-
   const filteredFaqs = activeCategory === 'all' 
     ? faqs 
     : faqs.filter(faq => faq.category === activeCategory);
-
-
-
 
   return (
     <>
