@@ -33,9 +33,13 @@ export default function PreLaunchProjectsSlider() {
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
+  const [velocity, setVelocity] = useState(0);
+  const [lastX, setLastX] = useState(0);
+  const [lastTime, setLastTime] = useState(0);
   
   const sliderRef = useRef<HTMLDivElement>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
+  const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
+  const animationFrameRef = useRef<number | null>(null);
 
   // Sample projects data
   const projects: Project[] = [
@@ -101,146 +105,295 @@ export default function PreLaunchProjectsSlider() {
     },
     {
       id: 5,
-      title: "Oceanfront Villas",
-      location: "Palm Jumeirah",
-      price: "AED 8.9M",
-      area: "5,200 sq.ft",
-      status: "Coming Soon",
-      progress: 15,
-      developer: "Nakheel",
-      launchDate: "2024-10-20",
+      title: "Luxury Penthouses",
+      location: "Dubai Marina",
+      price: "AED 12.5M",
+      area: "6,800 sq.ft",
+      status: "Exclusive",
+      progress: 45,
+      developer: "Sobha Realty",
+      launchDate: "2024-09-05",
       rating: 4.9,
-      isTrending: true,
-      unitsLeft: 8,
-      features: ["Private Beach", "Spa", "Kids Play Area"]
+      isTrending: false,
+      unitsLeft: 4,
+      features: ["Private Pool", "Panoramic View", "Helipad Access"]
     },
     {
       id: 6,
-      title: "Urban Lofts",
-      location: "Business Bay",
-      price: "AED 1.8M",
-      area: "1,850 sq.ft",
-      status: "Early Bird",
-      progress: 60,
-      developer: "Damac",
-      launchDate: "2024-08-30",
-      rating: 4.5,
-      isTrending: false,
-      unitsLeft: 24,
-      features: ["City View", "Smart Home", "Concierge"]
-    },
-    {
-      id: 7,
-      title: "Green Valley Apartments",
-      location: "Jumeirah Village Circle",
-      price: "AED 1.2M",
-      area: "1,400 sq.ft",
+      title: "Family Townhouses",
+      location: "Arabian Ranches",
+      price: "AED 3.2M",
+      area: "3,100 sq.ft",
       status: "Pre-Launch",
-      progress: 25,
-      developer: "Dubai Properties",
-      launchDate: "2024-11-10",
-      rating: 4.6,
+      progress: 20,
+      developer: "Emaar",
+      launchDate: "2024-10-15",
+      rating: 4.7,
       isTrending: true,
-      unitsLeft: 36,
-      features: ["Green Spaces", "Cycling Track", "Community Center"]
+      unitsLeft: 18,
+      features: ["Private Garden", "BBQ Area", "Pet Friendly"]
     }
   ];
 
   const getStatusColor = (status: Project['status']) => {
     switch(status) {
-      case 'Pre-Launch': return 'bg-blue-100 text-blue-800';
-      case 'Coming Soon': return 'bg-purple-100 text-purple-800';
-      case 'Early Bird': return 'bg-green-100 text-green-800';
-      case 'Exclusive': return 'bg-amber-100 text-amber-800';
-      default: return 'bg-gray-100 text-gray-800';
+      case 'Pre-Launch': return 'bg-gradient-to-r from-blue-500 to-blue-600 text-white';
+      case 'Coming Soon': return 'bg-gradient-to-r from-purple-500 to-purple-600 text-white';
+      case 'Early Bird': return 'bg-gradient-to-r from-green-500 to-green-600 text-white';
+      case 'Exclusive': return 'bg-gradient-to-r from-amber-500 to-amber-600 text-white';
+      default: return 'bg-gradient-to-r from-gray-500 to-gray-600 text-white';
     }
   };
 
-  // Handle mouse drag start
-  const handleMouseDown = (e: React.MouseEvent) => {
+  // Get card width including margin/padding
+  const getCardWidth = () => {
+    if (!cardsRef.current[0]) return 320; // Default card width
+    const card = cardsRef.current[0];
+    const style = window.getComputedStyle(card);
+    const width = card.offsetWidth;
+    const marginLeft = parseFloat(style.marginLeft) || 0;
+    const marginRight = parseFloat(style.marginRight) || 0;
+    return width + marginLeft + marginRight;
+  };
+
+  // Snap to nearest card
+  const snapToNearestCard = useCallback(() => {
+    if (!sliderRef.current) return;
+    
+    const scrollLeft = sliderRef.current.scrollLeft;
+    const cardWidth = getCardWidth();
+    const newIndex = Math.round(scrollLeft / cardWidth);
+    
+    // Ensure index is within bounds
+    const boundedIndex = Math.max(0, Math.min(newIndex, projects.length - 1));
+    
+    // Scroll to the snapped position
+    if (sliderRef.current) {
+      sliderRef.current.scrollTo({
+        left: boundedIndex * cardWidth,
+        behavior: 'smooth'
+      });
+    }
+    
+    setCurrentIndex(boundedIndex);
+  }, [projects.length]);
+
+  // Handle touch/mouse start
+  const handleStart = useCallback((clientX: number) => {
     if (!sliderRef.current) return;
     
     setIsDragging(true);
-    setStartX(e.pageX - sliderRef.current.offsetLeft);
+    setStartX(clientX);
     setScrollLeft(sliderRef.current.scrollLeft);
-  };
+    setVelocity(0);
+    setLastX(clientX);
+    setLastTime(Date.now());
+    
+    // Cancel any ongoing animations
+    if (animationFrameRef.current) {
+      cancelAnimationFrame(animationFrameRef.current);
+    }
+  }, []);
 
-  // Handle mouse move
-  const handleMouseMove = useCallback((e: MouseEvent) => {
+  // Handle touch/mouse move
+  const handleMove = useCallback((clientX: number) => {
     if (!isDragging || !sliderRef.current) return;
     
-    e.preventDefault();
-    const x = e.pageX - sliderRef.current.offsetLeft;
-    const walk = (x - startX) * 2; // Scroll speed multiplier
+    const currentTime = Date.now();
+    const deltaTime = currentTime - lastTime;
+    const deltaX = clientX - lastX;
+    
+    // Calculate velocity
+    if (deltaTime > 0) {
+      const newVelocity = deltaX / deltaTime;
+      setVelocity(newVelocity);
+    }
+    
+    // Update scroll position
+    const walk = (clientX - startX) * 1.5;
     sliderRef.current.scrollLeft = scrollLeft - walk;
-  }, [isDragging, startX, scrollLeft]);
+    
+    setLastX(clientX);
+    setLastTime(currentTime);
+  }, [isDragging, startX, scrollLeft, lastX, lastTime]);
 
-  // Handle mouse up
-  const handleMouseUp = () => {
+  // Handle end with momentum
+  const handleEnd = useCallback(() => {
+    if (!isDragging) return;
+    
     setIsDragging(false);
+    
+    // Apply momentum
+    const momentum = velocity * 100;
+    if (Math.abs(momentum) > 5) {
+      if (sliderRef.current) {
+        const currentScroll = sliderRef.current.scrollLeft;
+        const targetScroll = currentScroll - momentum;
+        
+        // Smooth scroll with momentum
+        const duration = 300;
+        const startTime = Date.now();
+        const startScroll = currentScroll;
+        
+        const animateScroll = () => {
+          const now = Date.now();
+          const elapsed = now - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          
+          // Easing function
+          const easeOut = 1 - Math.pow(1 - progress, 3);
+          
+          if (sliderRef.current) {
+            sliderRef.current.scrollLeft = startScroll + (targetScroll - startScroll) * easeOut;
+          }
+          
+          if (progress < 1) {
+            animationFrameRef.current = requestAnimationFrame(animateScroll);
+          } else {
+            snapToNearestCard();
+          }
+        };
+        
+        animationFrameRef.current = requestAnimationFrame(animateScroll);
+      }
+    } else {
+      // Snap immediately if velocity is low
+      snapToNearestCard();
+    }
+  }, [isDragging, velocity, snapToNearestCard]);
+
+  // Mouse event handlers
+  const handleMouseDown = (e: React.MouseEvent) => {
+    e.preventDefault();
+    handleStart(e.clientX);
   };
 
-  // Handle touch events for mobile
+  const handleMouseMove = useCallback((e: MouseEvent) => {
+    e.preventDefault();
+    handleMove(e.clientX);
+  }, [handleMove]);
+
+  const handleMouseUp = useCallback(() => {
+    handleEnd();
+  }, [handleEnd]);
+
+  // Touch event handlers
   const handleTouchStart = (e: React.TouchEvent) => {
-    if (!sliderRef.current) return;
-    
-    setIsDragging(true);
-    setStartX(e.touches[0].pageX - sliderRef.current.offsetLeft);
-    setScrollLeft(sliderRef.current.scrollLeft);
+    e.preventDefault();
+    if (e.touches.length === 1) {
+      handleStart(e.touches[0].clientX);
+    }
   };
 
   const handleTouchMove = useCallback((e: TouchEvent) => {
-    if (!isDragging || !sliderRef.current) return;
-    
-    const x = e.touches[0].pageX - sliderRef.current.offsetLeft;
-    const walk = (x - startX) * 2;
-    sliderRef.current.scrollLeft = scrollLeft - walk;
-  }, [isDragging, startX, scrollLeft]);
+    e.preventDefault();
+    if (e.touches.length === 1) {
+      handleMove(e.touches[0].clientX);
+    }
+  }, [handleMove]);
 
-  // Add event listeners
+  const handleTouchEnd = useCallback(() => {
+    handleEnd();
+  }, [handleEnd]);
+
+  // Set up event listeners
+  useEffect(() => {
+    const slider = sliderRef.current;
+    if (!slider) return;
+
+    const handleScroll = () => {
+      if (!isDragging && sliderRef.current) {
+        const scrollLeft = sliderRef.current.scrollLeft;
+        const cardWidth = getCardWidth();
+        const newIndex = Math.round(scrollLeft / cardWidth);
+        setCurrentIndex(newIndex);
+      }
+    };
+
+    slider.addEventListener('scroll', handleScroll);
+
+    return () => {
+      slider.removeEventListener('scroll', handleScroll);
+      if (animationFrameRef.current) {
+        cancelAnimationFrame(animationFrameRef.current);
+      }
+    };
+  }, [isDragging]);
+
   useEffect(() => {
     const handleMouseMoveGlobal = (e: MouseEvent) => handleMouseMove(e);
-    const handleTouchMoveGlobal = (e: TouchEvent) => handleTouchMove(e);
     const handleMouseUpGlobal = () => handleMouseUp();
+    const handleTouchMoveGlobal = (e: TouchEvent) => handleTouchMove(e);
+    const handleTouchEndGlobal = () => handleTouchEnd();
 
     if (isDragging) {
       document.addEventListener('mousemove', handleMouseMoveGlobal);
-      document.addEventListener('touchmove', handleTouchMoveGlobal);
       document.addEventListener('mouseup', handleMouseUpGlobal);
-      document.addEventListener('touchend', handleMouseUpGlobal);
+      document.addEventListener('touchmove', handleTouchMoveGlobal, { passive: false });
+      document.addEventListener('touchend', handleTouchEndGlobal);
+      document.addEventListener('touchcancel', handleTouchEndGlobal);
+      
+      // Prevent text selection during drag
+      document.body.style.userSelect = 'none';
+      document.body.style.cursor = 'grabbing';
     }
 
     return () => {
       document.removeEventListener('mousemove', handleMouseMoveGlobal);
-      document.removeEventListener('touchmove', handleTouchMoveGlobal);
       document.removeEventListener('mouseup', handleMouseUpGlobal);
-      document.removeEventListener('touchend', handleMouseUpGlobal);
+      document.removeEventListener('touchmove', handleTouchMoveGlobal);
+      document.removeEventListener('touchend', handleTouchEndGlobal);
+      document.removeEventListener('touchcancel', handleTouchEndGlobal);
+      
+      // Restore defaults
+      document.body.style.userSelect = '';
+      document.body.style.cursor = '';
+      
+      if (animationFrameRef.current) {
+        cancelAnimationFrame(animationFrameRef.current);
+      }
     };
-  }, [isDragging, handleMouseMove, handleTouchMove]);
+  }, [isDragging, handleMouseMove, handleMouseUp, handleTouchMove, handleTouchEnd]);
 
   // Navigation functions
   const nextSlide = () => {
     if (currentIndex < projects.length - 1) {
-      setCurrentIndex(prev => prev + 1);
+      const newIndex = currentIndex + 1;
+      setCurrentIndex(newIndex);
+      if (sliderRef.current) {
+        const cardWidth = getCardWidth();
+        sliderRef.current.scrollTo({
+          left: newIndex * cardWidth,
+          behavior: 'smooth'
+        });
+      }
     }
   };
 
   const prevSlide = () => {
     if (currentIndex > 0) {
-      setCurrentIndex(prev => prev - 1);
+      const newIndex = currentIndex - 1;
+      setCurrentIndex(newIndex);
+      if (sliderRef.current) {
+        const cardWidth = getCardWidth();
+        sliderRef.current.scrollTo({
+          left: newIndex * cardWidth,
+          behavior: 'smooth'
+        });
+      }
     }
   };
 
-  // Update scroll position when currentIndex changes
-  useEffect(() => {
-    if (sliderRef.current && containerRef.current) {
-      const cardWidth = containerRef.current.offsetWidth;
+  const goToSlide = (index: number) => {
+    setCurrentIndex(index);
+    if (sliderRef.current) {
+      const cardWidth = getCardWidth();
       sliderRef.current.scrollTo({
-        left: currentIndex * cardWidth,
+        left: index * cardWidth,
         behavior: 'smooth'
       });
     }
-  }, [currentIndex]);
+  };
 
   return (
     <section className="py-16 bg-gradient-to-b from-gray-50 to-white">
@@ -308,21 +461,21 @@ export default function PreLaunchProjectsSlider() {
           {/* Slider */}
           <div
             ref={sliderRef}
-            className={`flex overflow-x-auto scrollbar-hide snap-x snap-mandatory ${
+            className={`flex overflow-x-auto scrollbar-hide ${
               isDragging ? 'cursor-grabbing' : 'cursor-grab'
             }`}
             style={{ 
               direction: isRtl ? 'rtl' : 'ltr',
-              scrollBehavior: 'smooth'
+              WebkitOverflowScrolling: 'touch', // iOS momentum scrolling
             }}
             onMouseDown={handleMouseDown}
             onTouchStart={handleTouchStart}
           >
-            {projects.map((project) => (
+            {projects.map((project, index) => (
               <div
                 key={project.id}
-                ref={containerRef}
-                className="flex-shrink-0 w-full px-4 md:w-1/2 lg:w-1/3"
+                ref={el => cardsRef.current[index] = el}
+                className="flex-shrink-0 w-80 md:w-96 px-4 first:pl-0 last:pr-0"
               >
                 <div className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 h-full">
                   {/* Card Header */}
@@ -400,9 +553,9 @@ export default function PreLaunchProjectsSlider() {
 
                     {/* Features */}
                     <div className="flex flex-wrap gap-2 mb-6">
-                      {project.features.slice(0, 3).map((feature, index) => (
+                      {project.features.slice(0, 3).map((feature, idx) => (
                         <span
-                          key={index}
+                          key={idx}
                           className="px-3 py-1 bg-gray-50 text-gray-700 text-xs rounded-lg border border-gray-200"
                         >
                           {feature}
@@ -412,18 +565,18 @@ export default function PreLaunchProjectsSlider() {
 
                     {/* Price and Area */}
                     <div className="grid grid-cols-2 gap-4 mb-6">
-                      <div className="bg-blue-50 p-4 rounded-xl">
+                      <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-4 rounded-xl">
                         <div className="text-sm text-blue-600 font-medium mb-1">Price</div>
                         <div className="text-xl font-bold text-gray-900">{project.price}</div>
                       </div>
-                      <div className="bg-purple-50 p-4 rounded-xl">
+                      <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-4 rounded-xl">
                         <div className="text-sm text-purple-600 font-medium mb-1">Area</div>
                         <div className="text-xl font-bold text-gray-900">{project.area}</div>
                       </div>
                     </div>
 
                     {/* CTA Button */}
-                    <button className="w-full py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-xl hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-md hover:shadow-lg">
+                    <button className="w-full py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-xl hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-md hover:shadow-lg active:scale-95">
                       View Project Details
                     </button>
                   </div>
@@ -437,7 +590,7 @@ export default function PreLaunchProjectsSlider() {
             {projects.map((_, index) => (
               <button
                 key={index}
-                onClick={() => setCurrentIndex(index)}
+                onClick={() => goToSlide(index)}
                 className={`w-2 h-2 rounded-full transition-all duration-300 ${
                   currentIndex === index
                     ? 'w-8 bg-gradient-to-r from-blue-500 to-purple-500'
@@ -447,17 +600,25 @@ export default function PreLaunchProjectsSlider() {
             ))}
           </div>
 
-          {/* Drag Hint */}
-          <div className="text-center mt-6">
+          {/* Mobile Touch Instructions */}
+          <div className="text-center mt-6 md:hidden">
+            <div className="inline-flex items-center gap-2 text-gray-500 text-sm bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full border border-gray-200">
+              <span className="animate-pulse">👆</span>
+              <span>Swipe to explore</span>
+            </div>
+          </div>
+
+          {/* Desktop Instructions */}
+          <div className="text-center mt-6 hidden md:block">
             <div className="inline-flex items-center gap-2 text-gray-500 text-sm">
-              <span className="animate-pulse">←→</span>
-              <span>Drag to explore</span>
+              <span className="animate-pulse">← →</span>
+              <span>Drag or use arrows to explore</span>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Add custom CSS for scrollbar hiding */}
+      {/* Add custom CSS for better mobile experience */}
       <style jsx global>{`
         .scrollbar-hide {
           -ms-overflow-style: none;
@@ -465,6 +626,20 @@ export default function PreLaunchProjectsSlider() {
         }
         .scrollbar-hide::-webkit-scrollbar {
           display: none;
+        }
+        
+        /* Better touch scrolling on iOS */
+        .slider-container {
+          -webkit-overflow-scrolling: touch;
+          overscroll-behavior-x: contain;
+        }
+        
+        /* Prevent text selection during drag */
+        .no-select {
+          user-select: none;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
         }
       `}</style>
     </section>
