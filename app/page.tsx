@@ -308,45 +308,45 @@ export default function Home() {
       featured: true,
       amenities: ["Golf View", "Club House", "Pool", "Garden"]
     },
-    {
-      id: 7,
-      title: "Executive Suite in Faridabad",
-      location: "Sector 21, Faridabad",
-      price: "₹3.2 Cr",
-      pricePerSqft: "₹45,000/sqft",
-      sqft: "7,110 sqft",
-      bedrooms: 3,
-      bathrooms: 2,
-      image: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=600",
-      featured: false,
-      amenities: ["Modular Kitchen", "Park", "Power Backup", "Security"]
-    },
-    {
-      id: 8,
-      title: "Luxury Farmhouse",
-      location: "Chhatarpur, South Delhi",
-      price: "₹22.5 Cr",
-      pricePerSqft: "₹2,50,000/sqft",
-      sqft: "9,000 sqft",
-      bedrooms: 5,
-      bathrooms: 6,
-      image: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=600",
-      featured: true,
-      amenities: ["Private Pool", "Farmland", "Staff Quarters", "Garage"]
-    },
-    {
-      id: 9,
-      title: "Riverfront Villa",
-      location: "Yamuna Expressway, Noida",
-      price: "₹9.8 Cr",
-      pricePerSqft: "₹1,05,000/sqft",
-      sqft: "9,330 sqft",
-      bedrooms: 4,
-      bathrooms: 4,
-      image: "https://images.unsplash.com/photo-1605146769289-440113cc3d00?w=600",
-      featured: true,
-      amenities: ["River View", "Private Beach", "Boat Dock", "Garden"]
-    }
+    // {
+    //   id: 7,
+    //   title: "Executive Suite in Faridabad",
+    //   location: "Sector 21, Faridabad",
+    //   price: "₹3.2 Cr",
+    //   pricePerSqft: "₹45,000/sqft",
+    //   sqft: "7,110 sqft",
+    //   bedrooms: 3,
+    //   bathrooms: 2,
+    //   image: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=600",
+    //   featured: false,
+    //   amenities: ["Modular Kitchen", "Park", "Power Backup", "Security"]
+    // },
+    // {
+    //   id: 8,
+    //   title: "Luxury Farmhouse",
+    //   location: "Chhatarpur, South Delhi",
+    //   price: "₹22.5 Cr",
+    //   pricePerSqft: "₹2,50,000/sqft",
+    //   sqft: "9,000 sqft",
+    //   bedrooms: 5,
+    //   bathrooms: 6,
+    //   image: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=600",
+    //   featured: true,
+    //   amenities: ["Private Pool", "Farmland", "Staff Quarters", "Garage"]
+    // },
+    // {
+    //   id: 9,
+    //   title: "Riverfront Villa",
+    //   location: "Yamuna Expressway, Noida",
+    //   price: "₹9.8 Cr",
+    //   pricePerSqft: "₹1,05,000/sqft",
+    //   sqft: "9,330 sqft",
+    //   bedrooms: 4,
+    //   bathrooms: 4,
+    //   image: "https://images.unsplash.com/photo-1605146769289-440113cc3d00?w=600",
+    //   featured: true,
+    //   amenities: ["River View", "Private Beach", "Boat Dock", "Garden"]
+    // }
   ];
   ///3rd 
   const locations: Location[] = [

@@ -408,8 +408,8 @@ export default function PreLaunchProjectsSlider() {
               </span>
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-              Discover <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-                Exclusive Opportunities
+              Discover Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+                Exclusive Pre Lunch Opportunities In Noida
               </span>
             </h2>
             <p className="text-gray-600 mt-2 max-w-2xl">
