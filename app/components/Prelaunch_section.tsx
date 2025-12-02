@@ -474,7 +474,7 @@ export default function PreLaunchProjectsSlider() {
             {projects.map((project, index) => (
               <div
                 key={project.id}
-                ref={el => cardsRef.current[index] = el}
+                // ref={el => cardsRef.current[index] = el}
                 className="flex-shrink-0 w-80 md:w-96 px-4 first:pl-0 last:pr-0"
               >
                 <div className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 h-full">
