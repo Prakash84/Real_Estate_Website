@@ -1783,6 +1783,36 @@ const features: Feature[] = [
     {/* Mobile Number Input */}
     <div className="flex-1">
       <label htmlFor="mobile-number" className="mb-2 block text-sm font-medium text-gray-700">
+        Name
+      </label>
+      <div className="relative">
+        <input
+          type="tel"
+          id="Name"
+          placeholder="Enter your mobile Name"
+          // value={mobileNumber}
+          // onChange={(e) => setMobileNumber(e.target.value)}
+          className="w-full rounded-lg border border-gray-300 py-3 pl-10 pr-4 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+      </div>
+    </div>
+    <div className="flex-1">
+      <label htmlFor="mobile-number" className="mb-2 block text-sm font-medium text-gray-700">
+        Mobile Number
+      </label>
+      <div className="relative">
+        <input
+          type="tel"
+          id="mobile-number"
+          placeholder="Enter your mobile number"
+          // value={mobileNumber}
+          // onChange={(e) => setMobileNumber(e.target.value)}
+          className="w-full rounded-lg border border-gray-300 py-3 pl-10 pr-4 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+      </div>
+    </div>
+    <div className="flex-1">
+      <label htmlFor="mobile-number" className="mb-2 block text-sm font-medium text-gray-700">
         Mobile Number
       </label>
       <div className="relative">
