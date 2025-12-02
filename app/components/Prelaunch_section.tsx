@@ -96,7 +96,7 @@ export default function PreLaunchProjectsSlider() {
       area: "1,400 sq.ft",
       status: "Pre-Launch",
       progress: 25,
-      developer: "Dubai Properties",
+      developer: "Noida",
       launchDate: "2024-11-10",
       rating: 4.6,
       isTrending: true,
@@ -106,7 +106,7 @@ export default function PreLaunchProjectsSlider() {
     {
       id: 5,
       title: "Luxury Penthouses",
-      location: "Dubai Marina",
+      location: "Noida",
       price: "AED 12.5M",
       area: "6,800 sq.ft",
       status: "Exclusive",
@@ -565,15 +565,16 @@ export default function PreLaunchProjectsSlider() {
 
                     {/* Price and Area */}
                     <div className="grid grid-cols-2 gap-4 mb-6">
-                      <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-4 rounded-xl">
-                        <div className="text-sm text-blue-600 font-medium mb-1">Price</div>
-                        <div className="text-xl font-bold text-gray-900">{project.price}</div>
+                      <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-2 rounded-xl">
+                        <div className="text-xs text-blue-600 font-medium mb-1">Price</div>
+                        <div className="text-lg font-bold text-gray-900">{project.price}</div>
                       </div>
-                      <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-4 rounded-xl">
-                        <div className="text-sm text-purple-600 font-medium mb-1">Area</div>
-                        <div className="text-xl font-bold text-gray-900">{project.area}</div>
+                      <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-2 rounded-xl">
+                        <div className="text-xs text-purple-600 font-medium mb-1">Area</div>
+                        <div className="text-lg font-bold text-gray-900">{project.area}</div>
                       </div>
                     </div>
+
 
                     {/* CTA Button */}
                     <button className="w-full py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-xl hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-md hover:shadow-lg active:scale-95">
