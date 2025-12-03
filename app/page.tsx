@@ -1031,7 +1031,7 @@ const features: Feature[] = [
     {
       id: 1,
       name: "DLF Limited",
-      logo: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=100&h=50&fit=crop",
+      logo: "/images/ATS_LOGO.png",
       type: "builder",
       projects: "250+",
       established: "1946",
@@ -1152,37 +1152,38 @@ const features: Feature[] = [
 
   const PartnerLogo = ({ partner }: { partner: Partner }) => (
     <div className="group relative bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-blue-200">
-      {/* Logo */}
-      <div className="flex items-center justify-center h-12 mb-4">
-        <img
-          src={partner.logo}
-          alt={partner.name}
-          className="max-h-12 max-w-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
-        />
-      </div>
+  {/* Logo */}
+  <div className="flex items-center justify-center mb-4">
+    <img
+      src={partner.logo}
+      alt={partner.name}
+      className="h-20 w-auto object-contain group-hover:grayscale-0 transition-all duration-300"
+    />
+  </div>
 
-      {/* Partner Name */}
-      <h3 className="text-center font-semibold text-gray-900 text-sm mb-2 line-clamp-1">
-        {partner.name}
-      </h3>
+  {/* Partner Name */}
+  <h3 className="text-center font-semibold text-gray-900 text-sm mb-2 line-clamp-1">
+    {partner.name}
+  </h3>
 
-      {/* Partner Details */}
-      <div className="text-center space-y-1">
-        <div className="text-xs text-gray-600">
-          {partner.projects}
-        </div>
-        <div className="flex items-center justify-center text-xs text-gray-500">
-          <span>Est. {partner.established}</span>
-          <span className="mx-2">•</span>
-          <span className="flex items-center">
-            ⭐ {partner.rating}
-          </span>
-        </div>
-      </div>
-
-      {/* Hover Overlay */}
-      <div className="absolute inset-0 bg-blue-600 rounded-xl bg-opacity-0 group-hover:bg-opacity-5 transition-all duration-300 pointer-events-none"></div>
+  {/* Partner Details */}
+  <div className="text-center space-y-1">
+    <div className="text-xs text-gray-600">
+      {partner.projects}
     </div>
+    <div className="flex items-center justify-center text-xs text-gray-500">
+      <span>Est. {partner.established}</span>
+      <span className="mx-2">•</span>
+      <span className="flex items-center">
+        ⭐ {partner.rating}
+      </span>
+    </div>
+  </div>
+
+  {/* Hover Overlay */}
+  <div className="absolute inset-0 bg-blue-600 rounded-xl bg-opacity-0 group-hover:bg-opacity-5 transition-all duration-300 pointer-events-none"></div>
+</div>
+
   );
   // 10th
    const [formData, setFormData] = useState<FormData>({
@@ -1628,10 +1629,16 @@ const features: Feature[] = [
     </section> */}
     
     {/* 2nd */}
-    <section className="py-13 bg-gray-50">
+    <section className="py-18 bg-gray-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-12">
+          <div className="inline-flex items-center gap-2 mb-4">
+                  <div className="w-3 h-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full animate-pulse"></div>
+                  <span className="text-sm font-semibold text-blue-600 uppercase tracking-wide">
+                    Top highlighted projects
+                  </span>
+                </div>
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
             Featured Properties in <span className="text-blue-600">Delhi NCR</span>
           </h2>
@@ -1966,7 +1973,7 @@ const features: Feature[] = [
         </div>
 
         {/* Bottom CTA */}
-        <div className="text-center mt-12">
+        {/* <div className="text-center mt-12">
           <div className="bg-gradient-to-r from-blue-50 to-cyan-50 rounded-2xl p-8 max-w-4xl mx-auto">
             <h3 className="text-2xl font-bold text-gray-900 mb-4">
               Not Sure Which Location is Right for You?
@@ -1983,7 +1990,7 @@ const features: Feature[] = [
               </button>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
     {/* 4th */}

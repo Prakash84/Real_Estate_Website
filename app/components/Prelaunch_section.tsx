@@ -399,8 +399,8 @@ export default function PreLaunchProjectsSlider() {
     <section className="py-10 bg-gradient-to-b from-gray-50 to-white">
       <div className="container mx-auto px-4">
         {/* Header */}
-        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-12">
-          <div className="mb-8 lg:mb-0">
+        
+          {/* <div className="mb-8 lg:mb-0">
             <div className="inline-flex items-center gap-2 mb-4">
               <div className="w-3 h-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full animate-pulse"></div>
               <span className="text-sm font-semibold text-blue-600 uppercase tracking-wide">
@@ -415,7 +415,23 @@ export default function PreLaunchProjectsSlider() {
             <p className="text-gray-600 mt-2 max-w-2xl">
               Explore our premium pre-launch properties with special early access benefits.
             </p>
-          </div>
+          </div> */}
+
+          {/* // */}
+              <div className="text-center mb-12">
+                <div className="inline-flex items-center gap-2 mb-4">
+                  <div className="w-3 h-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full animate-pulse"></div>
+                  <span className="text-sm font-semibold text-blue-600 uppercase tracking-wide">
+                    Pre-Launch Projects
+                  </span>
+                </div>
+              <h2 className="text-4xl font-bold text-gray-900 mb-4">
+                Discover Our <span className="text-blue-600">Exclusive Pre Lunch Opportunities In Noida</span>
+              </h2>
+              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                Explore our premium pre-launch properties with special early access benefits.
+              </p>
+            </div>
 
           {/* <div className="flex items-center gap-4">
             <button
@@ -454,8 +470,7 @@ export default function PreLaunchProjectsSlider() {
               </button>
             </div>
           </div> */}
-        </div>
-
+        
         {/* Slider Container */}
         <div className="relative">
           {/* Slider */}
