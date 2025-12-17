@@ -115,7 +115,7 @@ export default function Navbar() {
   <Link href="/" className="flex items-center gap-3">
     
     {/* Logo Image */}
-    <div className="w-45 h-30 relative">
+    <div className="w-40 h-18 relative">
       <Image
         src="/images/logo.png"
         alt="PropertyDeals Logo"
