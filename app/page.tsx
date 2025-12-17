@@ -5,6 +5,7 @@ import {ArrowUpIcon, StarIcon } from '@heroicons/react/24/outline';
 import { HeartIcon as HeartIconSolid } from '@heroicons/react/24/solid';
 import { FaBath, FaQuoteLeft  } from 'react-icons/fa';  // Using react-icons library
 import { useState } from 'react';
+import Image from "next/image";
 import { 
   BuildingOfficeIcon, 
   BuildingStorefrontIcon,  
@@ -62,6 +63,7 @@ import {
 
 import Prelaunch_section from './components/Prelaunch_section';
 
+import EmiCalculator from './components/Emicalculator';
 
 
 interface FAQItem {
@@ -206,10 +208,12 @@ export default function Home() {
 
   const propertyTypes = [
     { value: 'any', label: 'Any Type' },
-    { value: 'house', label: 'House' },
+    { value: 'highrise', label: 'Highrise' },
+    { value: 'lowrise', label: 'Lowrise' },
+    { value: 'Plot', label: 'Plot' },
     { value: 'apartment', label: 'Apartment' },
     { value: 'villa', label: 'Villa' },
-    { value: 'condo', label: 'Condo' },
+    // { value: 'condo', label: 'Condo' },
   ];
 
   const priceRanges = [
@@ -265,7 +269,8 @@ export default function Home() {
       sqft: "7,560 sqft",
       bedrooms: 3,
       bathrooms: 3,
-      image: "https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=600",
+      // image: "https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=600",
+      image: "/images/webaliser-_TPTXZd9mOo-unsplash.jpg",
       featured: false,
       amenities: ["City View", "Concierge", "Fitness Center", "Balcony"]
     },
@@ -367,7 +372,7 @@ export default function Home() {
       name: "Noida",
       area: "Sector 150 & Expressway",
       description: "Modern planned city with excellent connectivity to Delhi and growing IT sector",
-      image: "https://unsplash.com/photos/white-and-brown-concrete-building-under-blue-sky-during-daytime-_TPTXZd9mOo?w=600",
+      image: "/images/bilal-ahmad-_ua9kZBbjuw-unsplash.jpg",
       properties: "1,800+",
       avgPrice: "₹80L - ₹3.5Cr",
       growth: "15%",
@@ -391,7 +396,7 @@ export default function Home() {
       name: "Greater Noida",
       area: "Knowledge Park & Sports City",
       description: "Affordable housing with future growth potential and educational institutions",
-      image: "https://images.unsplash.com/photo-1580651315530-69c8e0026374?w=600",
+      image: "/images/shantanu-goyal-nhR-ALn6x-o-unsplash.jpg",
       properties: "1,200+",
       avgPrice: "₹40L - ₹1.8Cr",
       growth: "18%",
@@ -439,6 +444,38 @@ export default function Home() {
    const categories: Category[] = [
     {
       id: 1,
+      name: "Highrise",
+      description: "Luxurious top-floor apartments with premium features and panoramic views",
+      icon: ChartBarIcon,
+      image: "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=600",
+      properties: "320+",
+      startingPrice: "₹4Cr",
+      growth: "14%",
+      tags: ["Premium", "Panoramic View", "Luxury"],
+      route: "/properties/penthouse",
+      stats: [
+        { label: "Avg. Size", value: "2500-6000 sqft" },
+        { label: "Rental Yield", value: "2.5-3.5%" }
+      ]
+    },
+    {
+      id: 2,
+      name: "Lowrise",
+      description: "Spacious farmhouses with large plots, perfect for weekend getaways",
+      icon: HomeModernIcon,
+      image: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=600",
+      properties: "180+",
+      startingPrice: "₹1.5Cr",
+      growth: "25%",
+      tags: ["Spacious", "Garden", "Weekend"],
+      route: "/properties/farmhouse",
+      stats: [
+        { label: "Avg. Size", value: "1-5 acres" },
+        { label: "Appreciation", value: "18-22%" }
+      ]
+    },
+    {
+      id: 3,
       name: "Residential Apartment",
       description: "Modern apartments with amenities in prime locations across Delhi NCR",
       icon: BuildingOfficeIcon,
@@ -454,7 +491,7 @@ export default function Home() {
       ]
     },
     {
-      id: 2,
+      id: 4,
       name: "Commercial Space",
       description: "Office spaces, retail shops, and commercial establishments for business",
       icon: BuildingStorefrontIcon,
@@ -470,7 +507,7 @@ export default function Home() {
       ]
     },
     {
-      id: 3,
+      id: 5,
       name: "Luxury Villas",
       description: "Premium independent villas with private amenities and exclusive locations",
       icon: HomeModernIcon,
@@ -486,11 +523,11 @@ export default function Home() {
       ]
     },
     {
-      id: 4,
+      id: 6,
       name: "Plots & Land",
       description: "Residential and commercial plots for custom construction and investment",
       icon: MapIcon,
-      image: "https://images.unsplash.com/photo-1580651315530-69c8e0026374?w=600",
+      image: "/images/land.jpg",
       properties: "3,500+",
       startingPrice: "₹15L",
       growth: "22%",
@@ -502,7 +539,7 @@ export default function Home() {
       ]
     },
     {
-      id: 5,
+      id: 7,
       name: "Studio Apartment",
       description: "Compact and affordable studio apartments perfect for singles and couples",
       icon: BuildingLibraryIcon,
@@ -518,7 +555,7 @@ export default function Home() {
       ]
     },
     {
-      id: 6,
+      id: 8,
       name: "Builder Floors",
       description: "Independent floors in low-rise buildings with separate entries",
       icon: ArrowsPointingOutIcon,
@@ -533,38 +570,7 @@ export default function Home() {
         { label: "Rental Yield", value: "3-4%" }
       ]
     },
-    {
-      id: 7,
-      name: "Penthouse",
-      description: "Luxurious top-floor apartments with premium features and panoramic views",
-      icon: ChartBarIcon,
-      image: "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=600",
-      properties: "320+",
-      startingPrice: "₹4Cr",
-      growth: "14%",
-      tags: ["Premium", "Panoramic View", "Luxury"],
-      route: "/properties/penthouse",
-      stats: [
-        { label: "Avg. Size", value: "2500-6000 sqft" },
-        { label: "Rental Yield", value: "2.5-3.5%" }
-      ]
-    },
-    {
-      id: 8,
-      name: "Farmhouse",
-      description: "Spacious farmhouses with large plots, perfect for weekend getaways",
-      icon: HomeModernIcon,
-      image: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=600",
-      properties: "180+",
-      startingPrice: "₹1.5Cr",
-      growth: "25%",
-      tags: ["Spacious", "Garden", "Weekend"],
-      route: "/properties/farmhouse",
-      stats: [
-        { label: "Avg. Size", value: "1-5 acres" },
-        { label: "Appreciation", value: "18-22%" }
-      ]
-    }
+    
   ];
   // 5th
 const features: Feature[] = [
@@ -1027,164 +1033,14 @@ const features: Feature[] = [
     }
   ];
   // 9th
-  const partners: Partner[] = [
-    {
-      id: 1,
-      name: "DLF Limited",
-      logo: "/images/ATS_LOGO.png",
-      type: "builder",
-      projects: "250+",
-      established: "1946",
-      rating: 4.9
-    },
-    {
-      id: 2,
-      name: "Emaar India",
-      logo: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=100&h=50&fit=crop",
-      type: "builder",
-      projects: "180+",
-      established: "2005",
-      rating: 4.8
-    },
-    {
-      id: 3,
-      name: "Sobha Limited",
-      logo: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=100&h=50&fit=crop",
-      type: "builder",
-      projects: "120+",
-      established: "1995",
-      rating: 4.7
-    },
-    {
-      id: 4,
-      name: "Godrej Properties",
-      logo: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=100&h=50&fit=crop",
-      type: "builder",
-      projects: "90+",
-      established: "1990",
-      rating: 4.8
-    },
-    {
-      id: 5,
-      name: "Brigade Group",
-      logo: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=100&h=50&fit=crop",
-      type: "builder",
-      projects: "150+",
-      established: "1986",
-      rating: 4.6
-    },
-    {
-      id: 6,
-      name: "Prestige Group",
-      logo: "https://images.unsplash.com/photo-1600585154340-9633f73f16d1?w=100&h=50&fit=crop",
-      type: "builder",
-      projects: "200+",
-      established: "1986",
-      rating: 4.7
-    },
-    {
-      id: 7,
-      name: "HDFC Bank",
-      logo: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=100&h=50&fit=crop",
-      type: "bank",
-      projects: "Home Loans",
-      established: "1994",
-      rating: 4.8
-    },
-    {
-      id: 8,
-      name: "SBI Home Loans",
-      logo: "https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?w=100&h=50&fit=crop",
-      type: "bank",
-      projects: "Home Loans",
-      established: "1955",
-      rating: 4.6
-    },
-    {
-      id: 9,
-      name: "ICICI Bank",
-      logo: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=100&h=50&fit=crop",
-      type: "bank",
-      projects: "Home Loans",
-      established: "1994",
-      rating: 4.7
-    },
-    {
-      id: 10,
-      name: "Axis Bank",
-      logo: "https://images.unsplash.com/photo-1551135049-8a33b42738b4?w=100&h=50&fit=crop",
-      type: "bank",
-      projects: "Home Loans",
-      established: "1993",
-      rating: 4.5
-    },
-    {
-      id: 11,
-      name: "Legal Solutions Inc",
-      logo: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=100&h=50&fit=crop",
-      type: "legal",
-      projects: "Legal Partner",
-      established: "2005",
-      rating: 4.9
-    },
-    {
-      id: 12,
-      name: "Design & Build",
-      logo: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=100&h=50&fit=crop",
-      type: "interior",
-      projects: "Interior Partner",
-      established: "2010",
-      rating: 4.8
-    }
-  ];
-
-  const partnerStats = [
-    { number: "50+", label: "Partner Builders", icon: BuildingLibraryIcon },
-    { number: "15+", label: "Banking Partners", icon: ShieldCheckIcon },
-    { number: "500+", label: "Completed Projects", icon: TrophyIcon },
-    { number: "4.8/5", label: "Average Rating", icon: HandThumbUpIcon }
-  ];
-
-  // Group partners by type for better organization
-  const builders = partners.filter(p => p.type === 'builder');
-  const banks = partners.filter(p => p.type === 'bank');
-  const others = partners.filter(p => p.type !== 'builder' && p.type !== 'bank');
-
-  const PartnerLogo = ({ partner }: { partner: Partner }) => (
-    <div className="group relative bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-blue-200">
-  {/* Logo */}
-  <div className="flex items-center justify-center mb-4">
-    <img
-      src={partner.logo}
-      alt={partner.name}
-      className="h-20 w-auto object-contain group-hover:grayscale-0 transition-all duration-300"
-    />
-  </div>
-
-  {/* Partner Name */}
-  <h3 className="text-center font-semibold text-gray-900 text-sm mb-2 line-clamp-1">
-    {partner.name}
-  </h3>
-
-  {/* Partner Details */}
-  <div className="text-center space-y-1">
-    <div className="text-xs text-gray-600">
-      {partner.projects}
-    </div>
-    <div className="flex items-center justify-center text-xs text-gray-500">
-      <span>Est. {partner.established}</span>
-      <span className="mx-2">•</span>
-      <span className="flex items-center">
-        ⭐ {partner.rating}
-      </span>
-    </div>
-  </div>
-
-  {/* Hover Overlay */}
-  <div className="absolute inset-0 bg-blue-600 rounded-xl bg-opacity-0 group-hover:bg-opacity-5 transition-all duration-300 pointer-events-none"></div>
-</div>
-
-  );
+  const companies = [
+  { id: 1, name: "DLF Realty", logo: "/images/M3M_logo.png" },
+  { id: 2, name: "Emaar India", logo: "/images/godrej.webp" },
+  { id: 3, name: "Prestige Group", logo: "/images/ATS_LOGO.png" },
+  { id: 4, name: "HDFC Bank", logo: "/images/sobha.png" },
+  { id: 5, name: "ICICI Bank", logo: "/images/unitech.png" },
+  { id: 6, name: "Godrej Properties", logo: "/images/Gaurslogo.png" }
+];
   // 10th
    const [formData, setFormData] = useState<FormData>({
     name: '',
@@ -1627,7 +1483,7 @@ const features: Feature[] = [
         </div>
       </div>
     </section> */}
-    
+   
     {/* 2nd */}
     <section className="py-18 bg-gray-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -1871,6 +1727,12 @@ const features: Feature[] = [
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-12">
+          <div className="inline-flex items-center gap-2 mb-4">
+                  <div className="w-3 h-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full animate-pulse"></div>
+                  <span className="text-sm font-semibold text-blue-600 uppercase tracking-wide">
+                    Our Popular Locations
+                  </span>
+                </div>
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
             Popular Locations in <span className="text-blue-600">Delhi NCR</span>
           </h2>
@@ -1998,6 +1860,12 @@ const features: Feature[] = [
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-12">
+          <div className="inline-flex items-center gap-2 mb-4">
+                  <div className="w-3 h-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full animate-pulse"></div>
+                  <span className="text-sm font-semibold text-blue-600 uppercase tracking-wide">
+                     Categorys
+                  </span>
+                </div>
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
             Explore Property by <span className="text-blue-600">Category</span>
           </h2>
@@ -2782,7 +2650,7 @@ const features: Feature[] = [
         </div>
 
         {/* Bottom CTA */}
-        <div className="text-center">
+        {/* <div className="text-center">
           <div className="bg-gray-50 rounded-2xl p-8 max-w-4xl mx-auto">
             <h3 className="text-2xl font-bold text-gray-900 mb-4">
               Need Multiple Services?
@@ -2800,134 +2668,44 @@ const features: Feature[] = [
               </button>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
     {/* 9th */}
-    <section className="py-16 bg-gradient-to-b from-gray-50 to-white">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+     <section className="py-13 bg-gradient-to-b from-gray-50 to-white">
+      <div className="container mx-auto px-4">
+
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-600 rounded-full px-4 py-2 mb-4">
-            <ShieldCheckIcon className="h-5 w-5" />
-            <span className="text-sm font-semibold">Trusted Partnerships</span>
-          </div>
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            Our <span className="text-blue-600">Partners & Builders</span>
+        <div className="text-center mb-12">
+          <p className="text-blue-600 font-semibold text-sm mb-2">
+            Trusted by Industry Leaders
+          </p>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+            Our <span className="text-blue-600">Premium Partners</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Collaborating with India's most reputable builders, banks, and service providers to bring you the best real estate opportunities
+          <p className="text-gray-600 mt-3 max-w-xl mx-auto">
+            We collaborate with the most reputable brands to deliver top-quality service and experience.
           </p>
         </div>
 
-        {/* Stats */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-          {partnerStats.map((stat, index) => {
-            const IconComponent = stat.icon;
-            return (
-              <div key={index} className="text-center bg-white rounded-2xl p-6 shadow-lg border border-gray-100">
-                <div className="inline-flex items-center justify-center w-12 h-12 bg-blue-100 rounded-xl mb-3">
-                  <IconComponent className="h-6 w-6 text-blue-600" />
-                </div>
-                <div className="text-2xl font-bold text-gray-900 mb-1">{stat.number}</div>
-                <div className="text-gray-600 text-sm">{stat.label}</div>
-              </div>
-            );
-          })}
+        {/* Logo Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+          {companies.map((item) => (
+            <div
+              key={item.id}
+              className="bg-white rounded-xl p-4 shadow-sm border border-gray-100 hover:shadow-lg hover:border-blue-300 transition-all duration-300 flex items-center justify-center group"
+            >
+              <Image
+                src={item.logo}
+                alt={item.name}
+                width={120}
+                height={60}
+                className="object-contain grayscale group-hover:grayscale-0 transition-all duration-300"
+              />
+            </div>
+          ))}
         </div>
 
-        {/* Partner Builders Section */}
-        <div className="mb-12">
-          <div className="text-center mb-8">
-            <h3 className="text-2xl font-bold text-gray-900 mb-2">
-              Premium Builder Partners
-            </h3>
-            <p className="text-gray-600">
-              Collaborating with India's most trusted real estate developers
-            </p>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-            {builders.map((partner) => (
-              <PartnerLogo key={partner.id} partner={partner} />
-            ))}
-          </div>
-        </div>
-
-        {/* Banking Partners Section */}
-        <div className="mb-12">
-          <div className="text-center mb-8">
-            <h3 className="text-2xl font-bold text-gray-900 mb-2">
-              Banking & Finance Partners
-            </h3>
-            <p className="text-gray-600">
-              Get the best home loan deals from our banking partners
-            </p>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {banks.map((partner) => (
-              <PartnerLogo key={partner.id} partner={partner} />
-            ))}
-          </div>
-        </div>
-
-        {/* Other Partners */}
-        <div className="mb-12">
-          <div className="text-center mb-8">
-            <h3 className="text-2xl font-bold text-gray-900 mb-2">
-              Service Partners
-            </h3>
-            <p className="text-gray-600">
-              Complete ecosystem for your real estate journey
-            </p>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto">
-            {others.map((partner) => (
-              <PartnerLogo key={partner.id} partner={partner} />
-            ))}
-          </div>
-        </div>
-
-        {/* Partnership CTA */}
-        <div className="bg-gradient-to-r from-blue-600 to-cyan-600 rounded-3xl p-8 lg:p-12 text-white text-center">
-          <div className="max-w-3xl mx-auto">
-            <h3 className="text-3xl font-bold mb-4">
-              Want to Become Our Partner?
-            </h3>
-            <p className="text-blue-100 text-lg mb-8">
-              Join our network of trusted partners and reach thousands of potential customers
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
-                Builder Partnership
-              </button>
-              <button className="border border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white/10 transition-colors">
-                Service Partnership
-              </button>
-            </div>
-            <div className="mt-6 text-sm text-blue-200">
-              Trusted by 50+ builders and 15+ banking partners across India
-            </div>
-          </div>
-        </div>
-
-        {/* Trust Badges */}
-        <div className="mt-12 text-center">
-          <p className="text-gray-600 mb-6 font-medium">Certifications & Memberships</p>
-          <div className="flex flex-wrap justify-center items-center gap-6">
-            <div className="bg-white rounded-lg px-6 py-3 shadow-sm border border-gray-200">
-              <span className="text-gray-700 font-semibold text-sm">CREDAI Member</span>
-            </div>
-            <div className="bg-white rounded-lg px-6 py-3 shadow-sm border border-gray-200">
-              <span className="text-gray-700 font-semibold text-sm">RERA Certified</span>
-            </div>
-            <div className="bg-white rounded-lg px-6 py-3 shadow-sm border border-gray-200">
-              <span className="text-gray-700 font-semibold text-sm">ISO 9001:2015</span>
-            </div>
-            <div className="bg-white rounded-lg px-6 py-3 shadow-sm border border-gray-200">
-              <span className="text-gray-700 font-semibold text-sm">Builders Association</span>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
     {/* 10th */}
@@ -3171,7 +2949,7 @@ const features: Feature[] = [
                     By submitting, you agree to our Privacy Policy and consent to receive property recommendations.
                   </p>
                 </form> */}
-                
+                <EmiCalculator />
               </>
             )}
           </div>

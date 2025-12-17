@@ -17,6 +17,7 @@ interface Project {
   location: string;
   price: string;
   area: string;
+  image: string; // ✅ ADD THIS
   status: 'Pre-Launch' | 'Coming Soon' | 'Early Bird' | 'Exclusive';
   progress: number;
   developer: string;
@@ -43,97 +44,101 @@ export default function PreLaunchProjectsSlider() {
 
   // Sample projects data
   const projects: Project[] = [
-    {
-      id: 1,
-      title: "Skyline Residences",
-      location: "Downtown Dubai",
-      price: "AED 2.5M",
-      area: "2,500 sq.ft",
-      status: "Pre-Launch",
-      progress: 35,
-      developer: "Emaar Properties",
-      launchDate: "2024-09-15",
-      rating: 4.8,
-      isTrending: true,
-      unitsLeft: 12,
-      features: ["Swimming Pool", "Gym", "Park", "24/7 Security"]
-    },
-    {
-      id: 2,
-      title: "Oceanfront Villas",
-      location: "Palm Jumeirah",
-      price: "AED 8.9M",
-      area: "5,200 sq.ft",
-      status: "Coming Soon",
-      progress: 15,
-      developer: "Nakheel",
-      launchDate: "2024-10-20",
-      rating: 4.9,
-      isTrending: true,
-      unitsLeft: 8,
-      features: ["Private Beach", "Spa", "Kids Play Area"]
-    },
-    {
-      id: 3,
-      title: "Urban Lofts",
-      location: "Business Bay",
-      price: "AED 1.8M",
-      area: "1,850 sq.ft",
-      status: "Early Bird",
-      progress: 60,
-      developer: "Damac",
-      launchDate: "2024-08-30",
-      rating: 4.5,
-      isTrending: false,
-      unitsLeft: 24,
-      features: ["City View", "Smart Home", "Concierge"]
-    },
-    {
-      id: 4,
-      title: "Green Valley Apartments",
-      location: "Jumeirah Village Circle",
-      price: "AED 1.2M",
-      area: "1,400 sq.ft",
-      status: "Pre-Launch",
-      progress: 25,
-      developer: "Noida",
-      launchDate: "2024-11-10",
-      rating: 4.6,
-      isTrending: true,
-      unitsLeft: 36,
-      features: ["Green Spaces", "Cycling Track", "Community Center"]
-    },
-    {
-      id: 5,
-      title: "Luxury Penthouses",
-      location: "Noida",
-      price: "AED 12.5M",
-      area: "6,800 sq.ft",
-      status: "Exclusive",
-      progress: 45,
-      developer: "Sobha Realty",
-      launchDate: "2024-09-05",
-      rating: 4.9,
-      isTrending: false,
-      unitsLeft: 4,
-      features: ["Private Pool", "Panoramic View", "Helipad Access"]
-    },
-    {
-      id: 6,
-      title: "Family Townhouses",
-      location: "Arabian Ranches",
-      price: "AED 3.2M",
-      area: "3,100 sq.ft",
-      status: "Pre-Launch",
-      progress: 20,
-      developer: "Emaar",
-      launchDate: "2024-10-15",
-      rating: 4.7,
-      isTrending: true,
-      unitsLeft: 18,
-      features: ["Private Garden", "BBQ Area", "Pet Friendly"]
-    }
-  ];
+  {
+    id: 1,
+    title: "Skyline Residences",
+    location: "Noida Sector 150",
+    price: "₹2.5 Cr",
+    area: "2,500 sq.ft",
+    image: "/images/jason-dent-w3eFhqXjkZE-unsplash.jpg", // ✅
+    status: "Pre-Launch",
+    progress: 35,
+    developer: "Emaar Properties",
+    launchDate: "2024-09-15",
+    rating: 4.8,
+    isTrending: true,
+    unitsLeft: 12,
+    features: ["Swimming Pool", "Gym", "Park"]
+  },
+  {
+    id: 2,
+    title: "Oceanfront Villas",
+    location: "Noida Extension",
+    price: "₹3.9 Cr",
+    area: "5,200 sq.ft",
+    image: "/images/dillon-kydd-2keCPb73aQY-unsplash.jpg", // ✅
+    status: "Coming Soon",
+    progress: 15,
+    developer: "Sobha Group",
+    launchDate: "2024-10-20",
+    rating: 4.9,
+    isTrending: true,
+    unitsLeft: 8,
+    features: ["Private Garden", "Club House"]
+  },
+  { 
+    id: 3, 
+    title: "Urban Lofts", 
+    location: "Business Bay", 
+    price: "AED 1.8M", 
+    area: "1,850 sq.ft", 
+    image: "/images/francesca-tosolini-tHkJAMcO3QE-unsplash.jpg",
+    status: "Early Bird", 
+    progress: 60, 
+    developer: "Damac", 
+    launchDate: "2024-08-30", 
+    rating: 4.5, 
+    isTrending: false, 
+    unitsLeft: 24, 
+    features: ["City View", "Smart Home", "Concierge"] 
+  }, 
+  { id: 4, 
+    title: "Green Valley Apartments", 
+    location: "Jumeirah Village Circle", 
+    price: "AED 1.2M", 
+    area: "1,400 sq.ft", 
+    image: "/images/danist-soh-GqaOP6wsCQ0-unsplash.jpg",
+    status: "Pre-Launch", 
+    progress: 25, 
+    developer: "Noida",
+    launchDate: "2024-11-10", 
+    rating: 4.6, 
+    isTrending: true, 
+    unitsLeft: 36, 
+    features: ["Green Spaces", "Cycling Track", "Community Center"] 
+  }, 
+  { id: 5, 
+    title: "Luxury Penthouses", 
+    location: "Noida", 
+    price: "AED 12.5M", 
+    area: "6,800 sq.ft", 
+    image: "/images/avi-waxman-f9qZuKoZYoY-unsplash.jpg",
+    status: "Exclusive", 
+    progress: 45, 
+    developer: "Sobha Realty", 
+    launchDate: "2024-09-05", 
+    rating: 4.9, 
+    isTrending: false, 
+    unitsLeft: 4, 
+    features: ["Private Pool", "Panoramic View", "Helipad Access"] 
+  }, 
+  { id: 6, 
+    title: "Family Townhouses", 
+    location: "Arabian Ranches", 
+    price: "AED 3.2M", 
+    area: "3,100 sq.ft",
+    image: "/images/francesca-tosolini-lLDh9JppH2c-unsplash.jpg", 
+    status: "Pre-Launch", 
+    progress: 20, 
+    developer: "Emaar", 
+    launchDate: "2024-10-15", 
+    rating: 4.7, 
+    isTrending: true, 
+    unitsLeft: 18, 
+    features: ["Private Garden", "BBQ Area", "Pet Friendly"] 
+  }
+];
+
 
   const getStatusColor = (status: Project['status']) => {
     switch(status) {
@@ -495,6 +500,12 @@ export default function PreLaunchProjectsSlider() {
                 <div className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 h-full">
                   {/* Card Header */}
                   <div className="relative h-48 bg-gradient-to-r from-blue-50 to-purple-50 overflow-hidden">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="absolute inset-0 w-full h-full object-cover"
+                      draggable={false}
+                    />
                     <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10"></div>
                     
                     {/* Status Badges */}
@@ -502,11 +513,11 @@ export default function PreLaunchProjectsSlider() {
                       <span className={`px-3 py-1 rounded-full text-xs font-bold ${getStatusColor(project.status)}`}>
                         {project.status}
                       </span>
-                      {project.isTrending && (
+                      {/* {project.isTrending && (
                         <span className="px-3 py-1 rounded-full bg-gradient-to-r from-orange-500 to-red-500 text-white text-xs font-bold flex items-center gap-1">
                           <FaFire className="text-xs" /> Trending
                         </span>
-                      )}
+                      )} */}
                     </div>
 
                     {/* Units Left */}

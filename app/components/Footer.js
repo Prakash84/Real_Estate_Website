@@ -8,6 +8,8 @@ import {
   ChatBubbleLeftRightIcon,
   DevicePhoneMobileIcon
 } from '@heroicons/react/24/outline';
+import Link from 'next/link';
+import Image from "next/image";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -107,12 +109,36 @@ export default function Footer() {
           {/* Company Info & Logo */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
+              {/* <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold text-lg">PD</span>
-              </div>
+              </div> */}
               <div>
-                <h3 className="text-2xl font-bold">PropertyDeals</h3>
-                <p className="text-gray-400 text-sm">Real Estate Solutions</p>
+                <div className="flex items-center">
+                  <Link href="/" className="flex items-center gap-3">
+                    
+                    {/* Logo Image */}
+                    <div className="w-45 h-30 relative">
+                      <Image
+                        src="/images/logo.png"
+                        alt="PropertyDeals Logo"
+                        fill
+                        className="object-contain"
+                        priority
+                      />
+                    </div>
+                
+                    {/* Brand Text */}
+                    {/* <div className="hidden sm:block">
+                      <div className="text-xl font-bold text-gray-900">
+                        PropertyDeals
+                      </div>
+                      <div className="text-xs text-gray-500 -mt-1">
+                        Real Estate Solutions
+                      </div>
+                    </div> */}
+                
+                  </Link>
+                </div>
               </div>
             </div>
             <p className="text-gray-400 mb-6 leading-relaxed">
