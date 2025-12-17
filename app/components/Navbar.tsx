@@ -73,7 +73,7 @@ export default function Navbar() {
     },
     {
       name: 'Contact Us',
-      href: '/contact-us'
+      href: '/contect_us'
     }
   ];
 

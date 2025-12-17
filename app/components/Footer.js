@@ -24,7 +24,8 @@ export default function Footer() {
   ];
 
   const categories = [
-    { name: "Residential Apartments", count: "5,200+" },
+    { name: "High rise", count: "5,200+" },
+    { name: "Low Rise", count: "5,200+" },
     { name: "Commercial Spaces", count: "1,800+" },
     { name: "Luxury Villas", count: "850+" },
     { name: "Plots & Land", count: "3,500+" },
