@@ -218,11 +218,10 @@ export default function Home() {
 
   const priceRanges = [
     { value: 'any', label: 'Any Price' },
-    { value: '0-300000', label: 'Under $300K' },
-    { value: '300000-500000', label: '$300K - $500K' },
-    { value: '500000-750000', label: '$500K - $750K' },
-    { value: '750000-1000000', label: '$750K - $1M' },
-    { value: '1000000+', label: '$1M+' },
+    { value: '50L to 1Cr', label: 'Under 1Cr' },
+    { value: '1Cr-1.5Cr', label: '1Cr - 1.5Cr' },
+    { value: '1.5Cr-2', label: '1.5Cr - 2Cr' },
+    { value: '2Cr+', label: '2Cr+' },
   ];
   // JSX Return
   const [favorites, setFavorites] = useState<number[]>([]);
@@ -1338,75 +1337,93 @@ const features: Feature[] = [
 
             {/* Search Form */}
             <div className="rounded-2xl bg-white/10 p-1 backdrop-blur-sm">
-              <div className="flex flex-col gap-4 rounded-xl bg-white p-6 shadow-2xl lg:flex-row lg:items-center lg:gap-2">
-                {/* Location Search */}
-                <div className="flex-1">
-                  <label htmlFor="location" className="mb-2 block text-sm font-medium text-gray-700">
-                    Location
-                  </label>
-                  <div className="relative">
-                    <MapPinIcon className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400" />
-                    <input
-                      type="text"
-                      id="location"
-                      placeholder="Enter city, neighborhood, or ZIP"
-                      value={searchTerm}
-                      onChange={(e) => setSearchTerm(e.target.value)}
-                      className="w-full rounded-lg border border-gray-300 py-3 pl-10 pr-4 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    />
-                  </div>
-                </div>
+  <div className="flex flex-col gap-4 rounded-xl bg-white p-6 shadow-2xl lg:flex-row lg:items-end">
 
-                {/* Property Type */}
-                <div className="flex-1">
-                  <label htmlFor="property-type" className="mb-2 block text-sm font-medium text-gray-700">
-                    Property Type
-                  </label>
-                  <select
-                    id="property-type"
-                    value={propertyType}
-                    onChange={(e) => setPropertyType(e.target.value)}
-                    className="w-full rounded-lg border border-gray-300 py-3 px-4 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  >
-                    {propertyTypes.map((type) => (
-                      <option key={type.value} value={type.value}>
-                        {type.label}
-                      </option>
-                    ))}
-                  </select>
-                </div>
+    {/* Name */}
+    <div className="flex-1">
+      <label htmlFor="name" className="mb-2 block text-sm font-medium text-gray-700">
+        Full Name
+      </label>
+      <input
+        type="text"
+        id="name"
+        placeholder="Enter your name"
+        // value={name}
+        // onChange={(e) => setName(e.target.value)}
+        className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
+      />
+    </div>
 
-                {/* Price Range */}
-                <div className="flex-1">
-                  <label htmlFor="price-range" className="mb-2 block text-sm font-medium text-gray-700">
-                    Price Range
-                  </label>
-                  <select
-                    id="price-range"
-                    value={priceRange}
-                    onChange={(e) => setPriceRange(e.target.value)}
-                    className="w-full rounded-lg border border-gray-300 py-3 px-4 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  >
-                    {priceRanges.map((range) => (
-                      <option key={range.value} value={range.value}>
-                        {range.label}
-                      </option>
-                    ))}
-                  </select>
-                </div>
+    {/* Mobile Number */}
+    <div className="flex-1">
+      <label htmlFor="mobile" className="mb-2 block text-sm font-medium text-gray-700">
+        Mobile Number
+      </label>
+      <input
+        type="tel"
+        id="mobile"
+        placeholder="Enter mobile number"
+        // value={mobile}
+        // onChange={(e) => setMobile(e.target.value)}
+        className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
+      />
+    </div>
 
-                {/* Search Button */}
-                <div className="lg:pt-6">
-                  <button
-                    type="button"
-                    className="flex w-full items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-600 px-8 py-3 font-semibold text-white transition-all hover:from-cyan-600 hover:to-blue-700 hover:shadow-lg lg:w-auto"
-                  >
-                    <MagnifyingGlassIcon className="h-5 w-5" />
-                    Search
-                  </button>
-                </div>
-              </div>
-            </div>
+    {/* Property Type */}
+    <div className="flex-1">
+      <label htmlFor="property-type" className="mb-2 block text-sm font-medium text-gray-700">
+        Property Type
+      </label>
+      <select
+        id="property-type"
+        value={propertyType}
+        onChange={(e) => setPropertyType(e.target.value)}
+        className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
+      >
+        <option value="">Select Property</option>
+        {propertyTypes.map((type) => (
+          <option key={type.value} value={type.value}>
+            {type.label}
+          </option>
+        ))}
+      </select>
+    </div>
+
+    {/* Price Range */}
+    <div className="flex-1">
+      <label htmlFor="price-range" className="mb-2 block text-sm font-medium text-gray-700">
+        Price Range
+      </label>
+      <select
+        id="price-range"
+        value={priceRange}
+        onChange={(e) => setPriceRange(e.target.value)}
+        className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
+      >
+        <option value="">Select Budget</option>
+        {priceRanges.map((range) => (
+          <option key={range.value} value={range.value}>
+            {range.label}
+          </option>
+        ))}
+      </select>
+    </div>
+
+    {/* Search Button */}
+    <div>
+      <button
+        type="button"
+        // onClick={handleSearch}
+        className="flex w-full items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-600 px-8 py-3 font-semibold text-white transition-all hover:from-cyan-600 hover:to-blue-700 hover:shadow-lg lg:w-auto"
+      >
+        <MagnifyingGlassIcon className="h-5 w-5" />
+        Search
+      </button>
+    </div>
+
+  </div>
+</div>
+
 
             {/* Trust Indicators */}
             <div className="mt-8 flex items-center gap-6">
@@ -1630,45 +1647,40 @@ const features: Feature[] = [
     </p>
   </div>
 
-  <div className="flex flex-col gap-4 rounded-xl bg-white p-6 shadow-2xl lg:flex-row lg:items-center lg:gap-2">
+  <div className="rounded-2xl bg-white/10 p-1 backdrop-blur-sm">
+  <div className="flex flex-col gap-4 rounded-xl bg-white p-6 shadow-2xl lg:flex-row lg:items-end">
 
-    {/* Name Input */}
+    {/* Name */}
     <div className="flex-1">
       <label htmlFor="name" className="mb-2 block text-sm font-medium text-gray-700">
-        Name
+        Full Name
       </label>
-      <div className="relative">
-        <input
-          type="text"
-          id="name"
-          placeholder="Enter your name"
-          // value={name} 
-          // onChange={(e) => setName(e.target.value)}
-          className="w-full rounded-lg border border-gray-300 py-3 pl-10 pr-4 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
-        />
-      </div>
+      <input
+        type="text"
+        id="name"
+        placeholder="Enter your name"
+        // value={name}
+        // onChange={(e) => setName(e.target.value)}
+        className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
+      />
     </div>
 
-    {/* Mobile Number Input */}
+    {/* Mobile Number */}
     <div className="flex-1">
-      <label htmlFor="mobile-number" className="mb-2 block text-sm font-medium text-gray-700">
+      <label htmlFor="mobile" className="mb-2 block text-sm font-medium text-gray-700">
         Mobile Number
       </label>
-      <div className="relative">
-        <input
-          type="tel"
-          id="mobile-number"
-          placeholder="Enter your mobile number"
-          // value={mobileNumber}
-          // onChange={(e) => setMobileNumber(e.target.value)}
-          className="w-full rounded-lg border border-gray-300 py-3 pl-10 pr-4 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
-        />
-      </div>
+      <input
+        type="tel"
+        id="mobile"
+        placeholder="Enter mobile number"
+        // value={mobile}
+        // onChange={(e) => setMobile(e.target.value)}
+        className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
+      />
     </div>
 
-    
-
-    {/* Property Type Select */}
+    {/* Property Type */}
     <div className="flex-1">
       <label htmlFor="property-type" className="mb-2 block text-sm font-medium text-gray-700">
         Property Type
@@ -1677,8 +1689,9 @@ const features: Feature[] = [
         id="property-type"
         value={propertyType}
         onChange={(e) => setPropertyType(e.target.value)}
-        className="w-full rounded-lg border border-gray-300 py-3 px-4 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
       >
+        <option value="">Select Property</option>
         {propertyTypes.map((type) => (
           <option key={type.value} value={type.value}>
             {type.label}
@@ -1687,7 +1700,7 @@ const features: Feature[] = [
       </select>
     </div>
 
-    {/* Price Range Select */}
+    {/* Price Range */}
     <div className="flex-1">
       <label htmlFor="price-range" className="mb-2 block text-sm font-medium text-gray-700">
         Price Range
@@ -1696,8 +1709,9 @@ const features: Feature[] = [
         id="price-range"
         value={priceRange}
         onChange={(e) => setPriceRange(e.target.value)}
-        className="w-full rounded-lg border border-gray-300 py-3 px-4 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
       >
+        <option value="">Select Budget</option>
         {priceRanges.map((range) => (
           <option key={range.value} value={range.value}>
             {range.label}
@@ -1706,17 +1720,20 @@ const features: Feature[] = [
       </select>
     </div>
 
-    {/* Send Enquiry Button */}
-    <div className="lg:pt-6">
+    {/* Search Button */}
+    <div>
       <button
         type="button"
+        // onClick={handleSearch}
         className="flex w-full items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-600 px-8 py-3 font-semibold text-white transition-all hover:from-cyan-600 hover:to-blue-700 hover:shadow-lg lg:w-auto"
       >
-        Send Enquiry
+        <MagnifyingGlassIcon className="h-5 w-5" />
+        Search
       </button>
     </div>
 
   </div>
+</div>
 
 </div>
 
@@ -2316,7 +2333,7 @@ const features: Feature[] = [
         </div>
 
         {/* Bottom CTA */}
-        <div className="text-center mt-12">
+        {/* <div className="text-center mt-12">
           <div className="bg-gradient-to-r from-blue-600 to-cyan-600 rounded-2xl p-8 text-white">
             <h3 className="text-2xl font-bold mb-4">
               Get First Access to New Launches
@@ -2335,7 +2352,7 @@ const features: Feature[] = [
               </button>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
     {/* 7th */}
@@ -2484,7 +2501,7 @@ const features: Feature[] = [
         </div>
 
         {/* Bottom CTA */}
-        <div className="text-center mt-16">
+        {/* <div className="text-center mt-16">
           <div className="bg-white rounded-2xl p-8 max-w-4xl mx-auto shadow-lg border border-gray-100">
             <h3 className="text-2xl font-bold text-gray-900 mb-4">
               Ready to Share Your Experience?
@@ -2501,10 +2518,10 @@ const features: Feature[] = [
               </button>
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/* Trust Badges */}
-        <div className="mt-12 text-center">
+        {/* <div className="mt-12 text-center">
           <p className="text-gray-600 mb-6 font-medium">As Featured In</p>
           <div className="flex flex-wrap justify-center items-center gap-8 opacity-60">
             <div className="bg-white rounded-lg px-6 py-3 shadow-sm">
@@ -2520,7 +2537,7 @@ const features: Feature[] = [
               <span className="text-gray-700 font-semibold">99acres</span>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
     {/* 8th */}
