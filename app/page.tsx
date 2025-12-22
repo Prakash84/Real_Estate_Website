@@ -218,7 +218,7 @@ export default function Home() {
 
   const priceRanges = [
     { value: 'any', label: 'Any Price' },
-    { value: '50L to 1Cr', label: 'Under 1Cr' },
+    { value: '10L to 1Cr', label: 'Under 50lac' },
     { value: '1Cr-1.5Cr', label: '1Cr - 1.5Cr' },
     { value: '1.5Cr-2', label: '1.5Cr - 2Cr' },
     { value: '2Cr+', label: '2Cr+' },
@@ -2368,7 +2368,7 @@ const features: Feature[] = [
             What Our <span className="text-blue-600">Customers Say</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Don't just take our word for it. Here's what our happy customers have to say about their experience with us.
+            Do not just take our word for it. Here's what our happy customers have to say about their experience with us.
           </p>
         </div>
 
@@ -2422,7 +2422,7 @@ const features: Feature[] = [
               </div>
 
               {/* Property & Tags */}
-              <div className="mt-6 pt-6 border-t border-gray-100">
+              {/* <div className="mt-6 pt-6 border-t border-gray-100">
                 <p className="text-sm font-medium text-gray-900 mb-3">
                   {testimonial.property}
                 </p>
@@ -2436,13 +2436,13 @@ const features: Feature[] = [
                     </span>
                   ))}
                 </div>
-              </div>
+              </div> */}
 
               {/* Likes */}
-              <div className="flex items-center justify-end mt-4 text-sm text-gray-500">
+              {/* <div className="flex items-center justify-end mt-4 text-sm text-gray-500">
                 <HandThumbUpIcon className="h-4 w-4 mr-1" />
                 {testimonial.likes} people found this helpful
-              </div>
+              </div> */}
             </div>
           ))}
         </div>
@@ -2717,7 +2717,7 @@ const features: Feature[] = [
                 alt={item.name}
                 width={120}
                 height={60}
-                className="object-contain grayscale group-hover:grayscale-0 transition-all duration-300"
+                className="object-contain "
               />
             </div>
           ))}
@@ -2726,253 +2726,129 @@ const features: Feature[] = [
       </div>
     </section>
     {/* 10th */}
-    <section id="contact" className="py-16 bg-gradient-to-br from-gray-900 to-blue-900">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Left Content */}
-          <div className="text-white">
-            <div className="mb-8">
-              <div className="inline-flex items-center gap-2 bg-white/10 rounded-full px-4 py-2 mb-4 backdrop-blur-sm">
-                <BuildingOfficeIcon className="h-5 w-5 text-blue-300" />
-                <span className="text-sm font-semibold text-blue-200">Get Expert Assistance</span>
+    <section
+  id="contact"
+  className="relative py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-blue-900"
+>
+  <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-start">
+
+      {/* LEFT CONTENT */}
+      <div className="text-white">
+
+        {/* Badge */}
+        <div className="inline-flex items-center gap-2 bg-white/10 rounded-full px-3 py-1.5 sm:px-4 sm:py-2 mb-4 backdrop-blur">
+          <BuildingOfficeIcon className="h-4 w-4 sm:h-5 sm:w-5 text-blue-300" />
+          <span className="text-xs sm:text-sm font-semibold text-blue-200">
+            Get Expert Assistance
+          </span>
+        </div>
+
+        {/* Heading */}
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight mb-3">
+          Get Best Property Deals in{" "}
+          <span className="text-blue-400">Delhi NCR</span>
+        </h2>
+
+        <p className="text-sm sm:text-base lg:text-lg text-blue-100 mb-6">
+          Connect with verified property experts and receive personalized
+          property recommendations based on your budget and preferences.
+        </p>
+
+        {/* FEATURES */}
+        <div className="mb-8">
+          <h3 className="text-lg sm:text-xl font-semibold mb-4">
+            Why Contact Us?
+          </h3>
+
+          <div className="space-y-3">
+            {features1.map((feature, index) => (
+              <div key={index} className="flex items-start gap-3">
+                <CheckCircleIcon className="h-5 w-5 text-green-400 flex-shrink-0 mt-0.5" />
+                <span className="text-sm sm:text-base text-blue-100">
+                  {feature}
+                </span>
               </div>
-              <h2 className="text-4xl font-bold mb-4">
-                Get Best Property Deals in <span className="text-blue-400">Delhi NCR</span>
-              </h2>
-              <p className="text-xl text-blue-100 mb-8">
-                Connect with our property experts and get personalized recommendations based on your requirements.
-              </p>
-            </div>
-
-            {/* Features List */}
-            <div className="mb-8">
-              <h3 className="text-2xl font-bold mb-6">Why Contact Us?</h3>
-              <div className="space-y-4">
-                {features1.map((feature, index) => (
-                  <div key={index} className="flex items-center gap-3">
-                    <CheckCircleIcon className="h-6 w-6 text-green-400 flex-shrink-0" />
-                    <span className="text-blue-100">{feature}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Contact Information */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              {contactInfo.map((item, index) => {
-                const Icon = item.icon;
-                return (
-                  <div key={index} className="bg-white/5 rounded-xl p-4 backdrop-blur-sm border border-white/10">
-                    <div className="flex items-center gap-3 mb-2">
-                      <div className="p-2 bg-blue-600 rounded-lg">
-                        <Icon className="h-5 w-5 text-white" />
-                      </div>
-                      <h4 className="font-semibold text-white">{item.title}</h4>
-                    </div>
-                    <p className="text-blue-100 font-medium text-lg">{item.details}</p>
-                    <p className="text-blue-200 text-sm mt-1">{item.subtitle}</p>
-                  </div>
-                );
-              })}
-            </div>
-
-            {/* Stats */}
-            <div className="mt-8 grid grid-cols-3 gap-4 text-center">
-              <div className="bg-white/5 rounded-lg p-4 backdrop-blur-sm">
-                <div className="text-2xl font-bold text-white">50K+</div>
-                <div className="text-blue-200 text-sm">Happy Customers</div>
-              </div>
-              <div className="bg-white/5 rounded-lg p-4 backdrop-blur-sm">
-                <div className="text-2xl font-bold text-white">15K+</div>
-                <div className="text-blue-200 text-sm">Properties</div>
-              </div>
-              <div className="bg-white/5 rounded-lg p-4 backdrop-blur-sm">
-                <div className="text-2xl font-bold text-white">24/7</div>
-                <div className="text-blue-200 text-sm">Support</div>
-              </div>
-            </div>
-          </div>
-
-          {/* Right Form */}
-          <div className="bg-white rounded-2xl shadow-2xl p-8">
-            {isSubmitted ? (
-              <div className="text-center py-12">
-                <CheckCircleIcon className="h-16 w-16 text-green-500 mx-auto mb-4" />
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">Thank You!</h3>
-                <p className="text-gray-600 mb-6">
-                  Our property expert will contact you within 30 minutes with personalized recommendations.
-                </p>
-                <div className="bg-green-50 border border-green-200 rounded-lg p-4 text-sm text-green-800">
-                  <strong>What's next?</strong> Check your email for a confirmation and expect a call from our team.
-                </div>
-              </div>
-            ) : (
-              <>
-                {/* <div className="text-center mb-8">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                    Get Free Consultation
-                  </h3>
-                  <p className="text-gray-600">
-                    Fill the form and our expert will help you find the perfect property
-                  </p>
-                </div> */}
-
-                {/* <form onSubmit={handleSubmit} className="space-y-6">
-                  
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                      <UserIcon className="h-4 w-4 inline mr-2" />
-                      Full Name *
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      required
-                      value={formData.name}
-                      onChange={handleChange}
-                      placeholder="Enter your full name"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-                    />
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    
-                    <div>
-                      <label htmlFor="mobile" className="block text-sm font-medium text-gray-700 mb-2">
-                        <DevicePhoneMobileIcon className="h-4 w-4 inline mr-2" />
-                        Mobile Number *
-                      </label>
-                      <input
-                        type="tel"
-                        id="mobile"
-                        name="mobile"
-                        required
-                        value={formData.mobile}
-                        onChange={handleChange}
-                        placeholder="+91 98765 43210"
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-                      />
-                    </div>
-
-                    <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                        <EnvelopeIcon className="h-4 w-4 inline mr-2" />
-                        Email Address *
-                      </label>
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        required
-                        value={formData.email}
-                        onChange={handleChange}
-                        placeholder="your@email.com"
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    
-                    <div>
-                      <label htmlFor="preferredLocation" className="block text-sm font-medium text-gray-700 mb-2">
-                        <MapPinIcon className="h-4 w-4 inline mr-2" />
-                        Preferred Location
-                      </label>
-                      <select
-                        id="preferredLocation"
-                        name="preferredLocation"
-                        value={formData.preferredLocation}
-                        onChange={handleChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-                      >
-                        <option value="">Select Location</option>
-                        {locations1.map(location => (
-                          <option key={location} value={location}>{location}</option>
-                        ))}
-                      </select>
-                    </div>
-
-                    <div>
-                      <label htmlFor="budget" className="block text-sm font-medium text-gray-700 mb-2">
-                        <CurrencyRupeeIcon className="h-4 w-4 inline mr-2" />
-                        Budget Range
-                      </label>
-                      <select
-                        id="budget"
-                        name="budget"
-                        value={formData.budget}
-                        onChange={handleChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-                      >
-                        <option value="">Select Budget</option>
-                        {budgets.map(budget => (
-                          <option key={budget} value={budget}>{budget}</option>
-                        ))}
-                      </select>
-                    </div>
-                  </div>
-                  <div>
-                    <label htmlFor="propertyType" className="block text-sm font-medium text-gray-700 mb-2">
-                      <BuildingOfficeIcon className="h-4 w-4 inline mr-2" />
-                      Property Type
-                    </label>
-                    <select
-                      id="propertyType"
-                      name="propertyType"
-                      value={formData.propertyType}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-                    >
-                      <option value="">Select Property Type</option>
-                      {propertyTypes1.map(type => (
-                        <option key={type} value={type}>{type}</option>
-                      ))}
-                    </select>
-                  </div>
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                      Additional Requirements
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      rows={4}
-                      value={formData.message}
-                      onChange={handleChange}
-                      placeholder="Tell us about your specific requirements, preferred amenities, timeline, etc."
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors resize-none"
-                    />
-                  </div>
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full bg-gradient-to-r from-blue-600 to-cyan-600 text-white py-4 px-6 rounded-lg font-semibold hover:from-blue-700 hover:to-cyan-700 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
-                  >
-                    {isSubmitting ? (
-                      <>
-                        <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
-                        Processing...
-                      </>
-                    ) : (
-                      <>
-                        Get Free Property Recommendations
-                        <PhoneIcon className="h-5 w-5 ml-2" />
-                      </>
-                    )}
-                  </button>
-                  <p className="text-center text-sm text-gray-500">
-                    By submitting, you agree to our Privacy Policy and consent to receive property recommendations.
-                  </p>
-                </form> */}
-                <EmiCalculator />
-              </>
-            )}
+            ))}
           </div>
         </div>
+
+        {/* CONTACT INFO */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {contactInfo.map((item, index) => {
+            const Icon = item.icon;
+            return (
+              <div
+                key={index}
+                className="bg-white/5 border border-white/10 rounded-xl p-4 backdrop-blur"
+              >
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="p-2 bg-blue-600 rounded-lg">
+                    <Icon className="h-4 w-4 text-white" />
+                  </div>
+                  <h4 className="text-sm sm:text-base font-semibold">
+                    {item.title}
+                  </h4>
+                </div>
+                <p className="text-sm sm:text-lg font-medium text-blue-100">
+                  {item.details}
+                </p>
+                <p className="text-xs sm:text-sm text-blue-200 mt-1">
+                  {item.subtitle}
+                </p>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* STATS */}
+        <div className="mt-6 grid grid-cols-3 gap-3">
+          {[
+            { value: "50K+", label: "Happy Clients" },
+            { value: "15K+", label: "Listings" },
+            { value: "24/7", label: "Support" },
+          ].map((stat, i) => (
+            <div
+              key={i}
+              className="bg-white/5 border border-white/10 rounded-lg p-3 text-center backdrop-blur"
+            >
+              <div className="text-lg sm:text-2xl font-bold text-white">
+                {stat.value}
+              </div>
+              <div className="text-xs sm:text-sm text-blue-200">
+                {stat.label}
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
-    </section>
+
+      {/* RIGHT CARD */}
+      <div className="bg-white rounded-2xl shadow-2xl p-5 sm:p-8">
+
+        {isSubmitted ? (
+          <div className="text-center py-10">
+            <CheckCircleIcon className="h-14 w-14 text-green-500 mx-auto mb-4" />
+            <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">
+              Thank You!
+            </h3>
+            <p className="text-sm sm:text-base text-gray-600 mb-6">
+              Our property expert will contact you within 30 minutes.
+            </p>
+            <div className="bg-green-50 border border-green-200 rounded-lg p-4 text-sm text-green-800">
+              <strong>Next step:</strong> Please check your email and keep your
+              phone available.
+            </div>
+          </div>
+        ) : (
+          <EmiCalculator />
+        )}
+
+      </div>
+    </div>
+  </div>
+</section>
+
     {/* 11th */}
     <section className="py-16 bg-gray-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
