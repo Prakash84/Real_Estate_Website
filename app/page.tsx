@@ -1283,172 +1283,127 @@ const features: Feature[] = [
 
   return (
     <>
-     <div className="relative h-screen min-h-[700px] bg-gray-900">
-      {/* Background Image with Overlay */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+     <section className="relative min-h-[100vh] bg-gray-900 overflow-hidden">
+      
+      {/* Background Image */}
+      <div
+        className="absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage: 'url(https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80)',
+          backgroundImage:
+            "url(https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2070&q=80)",
         }}
       >
-        <div className="absolute inset-0 bg-black/50 bg-gradient-to-r from-black/70 to-black/40"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40" />
       </div>
+
       {/* Content */}
-      <div className="relative z-10 flex h-full items-center">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-2xl">
+      <div className="relative z-10 flex min-h-screen items-center">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-10">
+          <div className="max-w-3xl">
+
             {/* Badge */}
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 backdrop-blur-sm">
-              <HomeModernIcon className="h-5 w-5 text-white" />
-              <span className="text-sm font-medium text-white">
-                Trusted by 10,000+ homeowners
+            <div className="mb-5 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 backdrop-blur">
+              <HomeModernIcon className="h-5 w-5 text-cyan-400" />
+              <span className="text-sm text-white">
+                Trusted by 10,000+ Home Buyers
               </span>
             </div>
 
-            {/* Main Heading */}
-            <h1 className="mb-6 text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
-              Find Your
+            {/* Heading */}
+            <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-white leading-tight mb-4">
+              Find Your Perfect
               <span className="block bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
                 Dream Home
               </span>
             </h1>
 
-            {/* Subheading */}
-            <p className="mb-8 max-w-md text-xl text-gray-300">
-              Discover exclusive properties in the world&apos;s most sought-after locations. 
-              Your perfect home is just a search away.
+            {/* Description */}
+            <p className="text-gray-300 text-base sm:text-lg max-w-xl mb-8">
+              Discover premium properties across top cities with verified listings,
+              expert guidance, and transparent pricing.
             </p>
 
             {/* Stats */}
-            <div className="mb-8 flex gap-8">
-              <div>
-                <div className="text-2xl font-bold text-white">10K+</div>
-                <div className="text-gray-400">Properties</div>
-              </div>
-              <div>
-                <div className="text-2xl font-bold text-white">50+</div>
-                <div className="text-gray-400">Cities</div>
-              </div>
-              <div>
-                <div className="text-2xl font-bold text-white">5★</div>
-                <div className="text-gray-400">Rated</div>
+            <div className="flex flex-wrap gap-6 mb-10">
+              {[
+                { value: "10K+", label: "Properties" },
+                { value: "50+", label: "Cities" },
+                { value: "5★", label: "Rated" },
+              ].map((item, i) => (
+                <div key={i}>
+                  <div className="text-2xl font-bold text-white">
+                    {item.value}
+                  </div>
+                  <div className="text-sm text-gray-400">{item.label}</div>
+                </div>
+              ))}
+            </div>
+
+            {/* Search Box */}
+            <div className="bg-white/10 backdrop-blur-xl rounded-2xl p-4 sm:p-6 shadow-xl">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+
+                {/* Name */}
+                <input
+                  type="text"
+                  placeholder="Full Name"
+                  className="input-style"
+                />
+
+                {/* Mobile */}
+                <input
+                  type="tel"
+                  placeholder="Mobile Number"
+                  className="input-style"
+                />
+
+                {/* Property Type */}
+                <select className="input-style">
+                  <option value="">Property Type</option>
+                  <option>Apartment</option>
+                  <option>Villa</option>
+                  <option>Plot</option>
+                </select>
+
+                {/* Budget */}
+                <select className="input-style">
+                  <option value="">Budget</option>
+                  <option>₹20L - ₹50L</option>
+                  <option>₹50L - ₹1Cr</option>
+                  <option>₹1Cr+</option>
+                </select>
+
+                {/* Button */}
+                <button className="flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-600 px-6 py-3 font-semibold text-white hover:shadow-xl transition">
+                  <MagnifyingGlassIcon className="h-5 w-5" />
+                  Search
+                </button>
               </div>
             </div>
 
-            {/* Search Form */}
-            <div className="rounded-2xl bg-white/10 p-1 backdrop-blur-sm">
-  <div className="flex flex-col gap-4 rounded-xl bg-white p-6 shadow-2xl lg:flex-row lg:items-end">
-
-    {/* Name */}
-    <div className="flex-1">
-      <label htmlFor="name" className="mb-2 block text-sm font-medium text-gray-700">
-        Full Name
-      </label>
-      <input
-        type="text"
-        id="name"
-        placeholder="Enter your name"
-        // value={name}
-        // onChange={(e) => setName(e.target.value)}
-        className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
-      />
-    </div>
-
-    {/* Mobile Number */}
-    <div className="flex-1">
-      <label htmlFor="mobile" className="mb-2 block text-sm font-medium text-gray-700">
-        Mobile Number
-      </label>
-      <input
-        type="tel"
-        id="mobile"
-        placeholder="Enter mobile number"
-        // value={mobile}
-        // onChange={(e) => setMobile(e.target.value)}
-        className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
-      />
-    </div>
-
-    {/* Property Type */}
-    <div className="flex-1">
-      <label htmlFor="property-type" className="mb-2 block text-sm font-medium text-gray-700">
-        Property Type
-      </label>
-      <select
-        id="property-type"
-        value={propertyType}
-        onChange={(e) => setPropertyType(e.target.value)}
-        className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
-      >
-        <option value="">Select Property</option>
-        {propertyTypes.map((type) => (
-          <option key={type.value} value={type.value}>
-            {type.label}
-          </option>
-        ))}
-      </select>
-    </div>
-
-    {/* Price Range */}
-    <div className="flex-1">
-      <label htmlFor="price-range" className="mb-2 block text-sm font-medium text-gray-700">
-        Price Range
-      </label>
-      <select
-        id="price-range"
-        value={priceRange}
-        onChange={(e) => setPriceRange(e.target.value)}
-        className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
-      >
-        <option value="">Select Budget</option>
-        {priceRanges.map((range) => (
-          <option key={range.value} value={range.value}>
-            {range.label}
-          </option>
-        ))}
-      </select>
-    </div>
-
-    {/* Search Button */}
-    <div>
-      <button
-        type="button"
-        // onClick={handleSearch}
-        className="flex w-full items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-600 px-8 py-3 font-semibold text-white transition-all hover:from-cyan-600 hover:to-blue-700 hover:shadow-lg lg:w-auto"
-      >
-        <MagnifyingGlassIcon className="h-5 w-5" />
-        Search
-      </button>
-    </div>
-
-  </div>
-</div>
-
-
-            {/* Trust Indicators */}
-            <div className="mt-8 flex items-center gap-6">
+            {/* Trust Line */}
+            <div className="mt-6 flex items-center gap-4 text-sm text-gray-300">
               <div className="flex -space-x-2">
                 {[1, 2, 3, 4].map((i) => (
                   <div
                     key={i}
-                    className="h-8 w-8 rounded-full border-2 border-white bg-gray-300"
-                  ></div>
+                    className="h-8 w-8 rounded-full border-2 border-white bg-gray-400"
+                  />
                 ))}
               </div>
-              <div className="text-sm text-gray-300">
-                <span className="font-semibold text-white">1,200+</span> homes found this week
-              </div>
+              <span>
+                <b className="text-white">1,200+</b> homes booked this week
+              </span>
             </div>
           </div>
         </div>
       </div>
+
       {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
-        <div className="animate-bounce">
-          <div className="h-6 w-px bg-white"></div>
-        </div>
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 animate-bounce">
+        <div className="h-8 w-[2px] bg-white/70"></div>
       </div>
-    </div>
+    </section>
     {/* //  end of 1st */}
      {/* <section className="py-8 bg-gray-50">
       <div className="container mx-auto px-4">
