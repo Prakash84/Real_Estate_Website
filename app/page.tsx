@@ -64,6 +64,10 @@ import {
 import Prelaunch_section from './components/Prelaunch_section';
 
 import EmiCalculator from './components/Emicalculator';
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/pagination";
 
 
 interface FAQItem {
@@ -1506,7 +1510,7 @@ const features: Feature[] = [
                 </div>
 
                 {/* Amenities */}
-                <div className="mb-6">
+                {/* <div className="mb-6">
                   <h4 className="text-sm font-semibold text-gray-900 mb-2">Key Amenities</h4>
                   <div className="flex flex-wrap gap-2">
                     {property.amenities.slice(0, 3).map((amenity, index) => (
@@ -1523,7 +1527,7 @@ const features: Feature[] = [
                       </span>
                     )}
                   </div>
-                </div>
+                </div> */}
 
                 {/* CTA Buttons */}
                 <div className="flex gap-3">
@@ -1741,7 +1745,7 @@ const features: Feature[] = [
                   </div>
 
                   {/* Tags */}
-                  <div className="flex flex-wrap gap-2 mt-auto">
+                  {/* <div className="flex flex-wrap gap-2 mt-auto">
                     {location.tags.map((tag, index) => (
                       <span
                         key={index}
@@ -1750,7 +1754,7 @@ const features: Feature[] = [
                         {tag}
                       </span>
                     ))}
-                  </div>
+                  </div> */}
                 </div>
 
                 {/* CTA Overlay */}
@@ -1878,7 +1882,7 @@ const features: Feature[] = [
                     </div>
 
                     {/* Tags */}
-                    <div className="flex flex-wrap gap-1 mt-auto">
+                    {/* <div className="flex flex-wrap gap-1 mt-auto">
                       {category.tags.slice(0, 2).map((tag, index) => (
                         <span
                           key={index}
@@ -1892,7 +1896,7 @@ const features: Feature[] = [
                           +{category.tags.length - 2}
                         </span>
                       )}
-                    </div>
+                    </div> */}
                   </div>
 
                   {/* CTA Button */}
@@ -2269,188 +2273,89 @@ const features: Feature[] = [
       </div>
     </section>
     {/* 7th */}
-    <section className="py-16 bg-gradient-to-br from-gray-50 to-blue-50">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 bg-white rounded-full px-4 py-2 shadow-sm mb-4">
+   <section className="py-16 bg-gradient-to-br from-gray-50 to-blue-50">
+      <div className="container mx-auto px-4">
+
+        {/* Heading */}
+        <div className="text-center mb-14">
+          <div className="inline-flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-sm mb-4">
             <HandThumbUpIcon className="h-5 w-5 text-green-500" />
-            <span className="text-sm font-semibold text-gray-700">Trusted by 2,500+ Customers</span>
+            <span className="text-sm font-semibold text-gray-700">
+              Trusted by 2,500+ Customers
+            </span>
           </div>
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
             What Our <span className="text-blue-600">Customers Say</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Do not just take our word for it. Here's what our happy customers have to say about their experience with us.
+
+          <p className="text-gray-600 max-w-2xl mx-auto">
+            Real reviews from people who found their dream property with us.
           </p>
         </div>
 
         {/* Stats */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-          {stats1.map((stat, index) => (
-            <div key={index} className="text-center bg-white rounded-2xl p-6 shadow-lg border border-gray-100">
-              <div className="text-3xl font-bold text-blue-600 mb-2">{stat.number}</div>
-              <div className="text-gray-600 font-medium">{stat.label}</div>
-            </div>
-          ))}
-        </div>
-
-        {/* Testimonials Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 mb-12">
-          {testimonials.slice(0, 4).map((testimonial) => (
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+          {stats1.map((stat, i) => (
             <div
-              key={testimonial.id}
-              className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-8 group"
+              key={i}
+              className="bg-white rounded-xl p-6 text-center shadow-md"
             >
-              {/* Quote Icon */}
-              <div className="mb-6">
-                <FaQuoteLeft className="h-8 w-8 text-blue-100 group-hover:text-blue-200 transition-colors" />
+              <div className="text-3xl font-bold text-blue-600">
+                {stat.number}
               </div>
-
-              {/* Review Text */}
-              <p className="text-gray-700 text-lg leading-relaxed mb-6 line-clamp-4">
-                "{testimonial.review}"
-              </p>
-
-              {/* Customer Info */}
-              <div className="flex items-start gap-4">
-                <img
-                  src={testimonial.photo}
-                  alt={testimonial.name}
-                  className="w-14 h-14 rounded-full object-cover border-2 border-blue-100"
-                />
-                <div className="flex-1">
-                  <div className="flex items-center gap-2 mb-1">
-                    <h4 className="font-semibold text-gray-900">{testimonial.name}</h4>
-                    {testimonial.verified && (
-                      <CheckBadgeIcon className="h-4 w-4 text-blue-500" />
-                    )}
-                  </div>
-                  <p className="text-gray-600 text-sm mb-2">{testimonial.location}</p>
-                  <div className="flex items-center gap-4">
-                    {renderStars(testimonial.rating)}
-                    <span className="text-sm text-gray-500">{testimonial.purchaseDate}</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Property & Tags */}
-              {/* <div className="mt-6 pt-6 border-t border-gray-100">
-                <p className="text-sm font-medium text-gray-900 mb-3">
-                  {testimonial.property}
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {testimonial.tags.map((tag, index) => (
-                    <span
-                      key={index}
-                      className="inline-block bg-blue-50 text-blue-700 text-xs px-3 py-1 rounded-full"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div> */}
-
-              {/* Likes */}
-              {/* <div className="flex items-center justify-end mt-4 text-sm text-gray-500">
-                <HandThumbUpIcon className="h-4 w-4 mr-1" />
-                {testimonial.likes} people found this helpful
-              </div> */}
+              <div className="text-gray-600">{stat.label}</div>
             </div>
           ))}
         </div>
 
-        {/* Carousel for Mobile */}
-        <div className="lg:hidden">
-          <div className="relative">
-            <div className="overflow-hidden">
-              <div 
-                className="flex transition-transform duration-300 ease-in-out"
-                style={{ transform: `translateX(-${activeTestimonial * 100}%)` }}
-              >
-                {testimonials.map((testimonial) => (
-                  <div key={testimonial.id} className="w-full flex-shrink-0 px-4">
-                    <div className="bg-white rounded-2xl shadow-lg p-8">
-                      <FaQuoteLeft className="h-8 w-8 text-blue-100 mb-6" />
-                      <p className="text-gray-700 text-lg leading-relaxed mb-6">
-                        "{testimonial.review}"
-                      </p>
-                      <div className="flex items-start gap-4">
-                        <img
-                          src={testimonial.photo}
-                          alt={testimonial.name}
-                          className="w-14 h-14 rounded-full object-cover border-2 border-blue-100"
-                        />
-                        <div className="flex-1">
-                          <div className="flex items-center gap-2 mb-1">
-                            <h4 className="font-semibold text-gray-900">{testimonial.name}</h4>
-                            {testimonial.verified && (
-                              <CheckBadgeIcon className="h-4 w-4 text-blue-500" />
-                            )}
-                          </div>
-                          <p className="text-gray-600 text-sm mb-2">{testimonial.location}</p>
-                          {renderStars(testimonial.rating)}
-                        </div>
-                      </div>
+        {/* 🔥 SLIDER */}
+        <Swiper
+          modules={[Autoplay, Pagination]}
+          spaceBetween={24}
+          autoplay={{ delay: 3500, disableOnInteraction: false }}
+          pagination={{ clickable: true }}
+          breakpoints={{
+            0: { slidesPerView: 1 },
+            768: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 },
+          }}
+        >
+          {testimonials.map((item) => (
+            <SwiperSlide key={item.id}>
+              <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition">
+
+                <FaQuoteLeft className="h-8 w-8 text-blue-100 mb-4" />
+
+                <p className="text-gray-700 leading-relaxed mb-6 line-clamp-4">
+                  "{item.review}"
+                </p>
+
+                <div className="flex items-center gap-4">
+                  <img
+                    src={item.photo}
+                    alt={item.name}
+                    className="w-14 h-14 rounded-full object-cover border-2 border-blue-100"
+                  />
+                  <div>
+                    <div className="flex items-center gap-2">
+                      <h4 className="font-semibold text-gray-900">
+                        {item.name}
+                      </h4>
+                      {item.verified && (
+                        <CheckBadgeIcon className="h-4 w-4 text-blue-500" />
+                      )}
                     </div>
+                    <p className="text-sm text-gray-500">
+                      {item.location}
+                    </p>
                   </div>
-                ))}
+                </div>
               </div>
-            </div>
-            
-            {/* Carousel Indicators */}
-            <div className="flex justify-center gap-2 mt-6">
-              {testimonials.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setActiveTestimonial(index)}
-                  className={`w-3 h-3 rounded-full transition-colors ${
-                    index === activeTestimonial ? 'bg-blue-600' : 'bg-gray-300'
-                  }`}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
 
-        {/* Bottom CTA */}
-        {/* <div className="text-center mt-16">
-          <div className="bg-white rounded-2xl p-8 max-w-4xl mx-auto shadow-lg border border-gray-100">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">
-              Ready to Share Your Experience?
-            </h3>
-            <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-              Join thousands of satisfied customers who found their dream home with PropertyDeals.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
-                Write a Review
-              </button>
-              <button className="border border-blue-600 text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors">
-                View More Reviews
-              </button>
-            </div>
-          </div>
-        </div> */}
-
-        {/* Trust Badges */}
-        {/* <div className="mt-12 text-center">
-          <p className="text-gray-600 mb-6 font-medium">As Featured In</p>
-          <div className="flex flex-wrap justify-center items-center gap-8 opacity-60">
-            <div className="bg-white rounded-lg px-6 py-3 shadow-sm">
-              <span className="text-gray-700 font-semibold">Times Property</span>
-            </div>
-            <div className="bg-white rounded-lg px-6 py-3 shadow-sm">
-              <span className="text-gray-700 font-semibold">Housing.com</span>
-            </div>
-            <div className="bg-white rounded-lg px-6 py-3 shadow-sm">
-              <span className="text-gray-700 font-semibold">MagicBricks</span>
-            </div>
-            <div className="bg-white rounded-lg px-6 py-3 shadow-sm">
-              <span className="text-gray-700 font-semibold">99acres</span>
-            </div>
-          </div>
-        </div> */}
       </div>
     </section>
     {/* 8th */}
