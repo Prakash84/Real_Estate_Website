@@ -1283,9 +1283,9 @@ const features: Feature[] = [
 
   return (
     <>
-     <section className="relative min-h-[100vh] bg-gray-900 overflow-hidden">
-      
-      {/* Background Image */}
+       <section className="relative min-h-[75vh] bg-gray-900 overflow-hidden">
+
+      {/* Background */}
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
@@ -1297,111 +1297,69 @@ const features: Feature[] = [
       </div>
 
       {/* Content */}
-      <div className="relative z-10 flex min-h-screen items-center">
+      <div className="relative z-10 flex items-center min-h-[75vh]">
         <div className="container mx-auto px-4 sm:px-6 lg:px-10">
           <div className="max-w-3xl">
 
             {/* Badge */}
-            <div className="mb-5 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 backdrop-blur">
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2">
               <HomeModernIcon className="h-5 w-5 text-cyan-400" />
               <span className="text-sm text-white">
-                Trusted by 10,000+ Home Buyers
+                Trusted by 10,000+ Buyers
               </span>
             </div>
 
             {/* Heading */}
-            <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-white leading-tight mb-4">
-              Find Your Perfect
-              <span className="block bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight mb-3">
+              Find Your
+              <span className="block text-cyan-400">
                 Dream Home
               </span>
             </h1>
 
-            {/* Description */}
-            <p className="text-gray-300 text-base sm:text-lg max-w-xl mb-8">
-              Discover premium properties across top cities with verified listings,
-              expert guidance, and transparent pricing.
+            <p className="text-gray-300 max-w-xl mb-6">
+              Buy premium properties with verified listings and expert guidance.
             </p>
 
-            {/* Stats */}
-            <div className="flex flex-wrap gap-6 mb-10">
-              {[
-                { value: "10K+", label: "Properties" },
-                { value: "50+", label: "Cities" },
-                { value: "5★", label: "Rated" },
-              ].map((item, i) => (
-                <div key={i}>
-                  <div className="text-2xl font-bold text-white">
-                    {item.value}
-                  </div>
-                  <div className="text-sm text-gray-400">{item.label}</div>
-                </div>
-              ))}
-            </div>
-
-            {/* Search Box */}
-            <div className="bg-white/10 backdrop-blur-xl rounded-2xl p-4 sm:p-6 shadow-xl">
+            {/* FORM (SOLID WHITE) */}
+            <div className="bg-white rounded-2xl shadow-xl p-5">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
 
-                {/* Name */}
                 <input
                   type="text"
                   placeholder="Full Name"
                   className="input-style"
                 />
 
-                {/* Mobile */}
                 <input
                   type="tel"
                   placeholder="Mobile Number"
                   className="input-style"
                 />
 
-                {/* Property Type */}
                 <select className="input-style">
-                  <option value="">Property Type</option>
+                  <option>Property Type</option>
                   <option>Apartment</option>
                   <option>Villa</option>
                   <option>Plot</option>
                 </select>
 
-                {/* Budget */}
                 <select className="input-style">
-                  <option value="">Budget</option>
+                  <option>Budget</option>
                   <option>₹20L - ₹50L</option>
                   <option>₹50L - ₹1Cr</option>
                   <option>₹1Cr+</option>
                 </select>
 
-                {/* Button */}
-                <button className="flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-600 px-6 py-3 font-semibold text-white hover:shadow-xl transition">
+                <button className="flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-600 px-6 py-3 font-semibold text-white hover:shadow-lg">
                   <MagnifyingGlassIcon className="h-5 w-5" />
                   Search
                 </button>
               </div>
             </div>
 
-            {/* Trust Line */}
-            <div className="mt-6 flex items-center gap-4 text-sm text-gray-300">
-              <div className="flex -space-x-2">
-                {[1, 2, 3, 4].map((i) => (
-                  <div
-                    key={i}
-                    className="h-8 w-8 rounded-full border-2 border-white bg-gray-400"
-                  />
-                ))}
-              </div>
-              <span>
-                <b className="text-white">1,200+</b> homes booked this week
-              </span>
-            </div>
           </div>
         </div>
-      </div>
-
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 animate-bounce">
-        <div className="h-8 w-[2px] bg-white/70"></div>
       </div>
     </section>
     {/* //  end of 1st */}
