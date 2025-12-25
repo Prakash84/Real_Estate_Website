@@ -29,6 +29,6 @@
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
     "**/*.mts"
-, "app/components/Emicalculator.jsx"  ],
+, "app/components/Emicalculator.jsx", "app/page.jsx", "app/page.jsx"  ],
   "exclude": ["node_modules"]
 }

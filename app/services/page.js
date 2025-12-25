@@ -23,6 +23,21 @@ import {
   BuildingOffice2Icon
 } from '@heroicons/react/24/outline';
 // import { useState } from 'react';
+import { 
+  CheckCircle, 
+  ShieldCheck, 
+  TrendingDown, 
+  Users,
+  BadgeCheck
+} from 'lucide-react';
+import { Phone, MessageCircle, Calendar, MapPin, ArrowRight } from 'lucide-react';
+import {  
+  Building2, 
+  TrendingUp, 
+  Shield,
+  Home,
+  DollarSign,
+} from 'lucide-react';
 
 export default function ServicesHeroSection() {
   const [hoveredService, setHoveredService] = useState(null);
@@ -255,6 +270,104 @@ const [hoveredCard, setHoveredCard] = useState(null);
         )
       );
 
+      const features = [
+    {
+      id: 1,
+      icon: <BadgeCheck className="w-12 h-12" />,
+      title: "100% Verified Properties",
+      description: "Every listing undergoes rigorous verification. No fake listings, no misleading information. We ensure every property is authentic and accurately represented.",
+      gradient: "from-blue-500 to-cyan-400"
+    },
+    {
+      id: 2,
+      icon: <ShieldCheck className="w-12 h-12" />,
+      title: "RERA Registered & Transparency Guaranteed",
+      description: "All our projects are RERA compliant with complete transparency in documentation. Your investment is secure with legally verified properties.",
+      gradient: "from-green-500 to-emerald-400"
+    },
+    {
+      id: 3,
+      icon: <TrendingDown className="w-12 h-12" />,
+      title: "Best Price Deals",
+      description: "Get the most competitive prices in the market. Our direct developer connections and bulk buying power ensure you get the best value for your investment.",
+      gradient: "from-orange-500 to-amber-400"
+    },
+    {
+      id: 4,
+      icon: <Users className="w-12 h-12" />,
+      title: "Dedicated Property Expert",
+      description: "A personal property consultant assigned to guide you through the entire process - from selection to possession and beyond.",
+      gradient: "from-purple-500 to-pink-400"
+    }
+  ];
+
+  // 5th
+  const locations1 = [
+    {
+      id: 1,
+      name: "Noida",
+      description: "Premium commercial and residential hub with excellent infrastructure, metro connectivity, and thriving business ecosystem.",
+      propertyCount: "2500+",
+      avgPrice: "₹75L - ₹5Cr",
+      growthRate: "12%",
+      icon: <Building2 className="w-6 h-6" />,
+      color: "from-blue-500 to-cyan-500",
+      bgColor: "bg-blue-50",
+      borderColor: "border-blue-200",
+      features: [
+        "Metro Connected Areas",
+        "IT & Corporate Hubs",
+        "Luxury Apartments",
+        "Gated Societies"
+      ],
+      topAreas: ["Sector 62", "Sector 128", "Noida Expressway", "Golf Course"]
+    },
+    {
+      id: 2,
+      name: "Ghaziabad",
+      description: "Rapidly developing residential area with affordable housing options and excellent connectivity to Delhi.",
+      propertyCount: "1800+",
+      avgPrice: "₹40L - ₹2.5Cr",
+      growthRate: "15%",
+      icon: <Home className="w-6 h-6" />,
+      color: "from-green-500 to-emerald-500",
+      bgColor: "bg-green-50",
+      borderColor: "border-green-200",
+      features: [
+        "Affordable Housing",
+        "NH-24 Corridor",
+        "Upcoming Metro",
+        "Industrial Zones"
+      ],
+      topAreas: ["Vaishali", "Kaushambi", "Raj Nagar", "Indirapuram"]
+    },
+    {
+      id: 3,
+      name: "Greater Noida",
+      description: "Modern planned city with vast land parcels, educational institutions, and industrial development zones.",
+      propertyCount: "1200+",
+      avgPrice: "₹30L - ₹1.8Cr",
+      growthRate: "18%",
+      icon: <TrendingUp className="w-6 h-6" />,
+      color: "from-orange-500 to-amber-500",
+      bgColor: "bg-orange-50",
+      borderColor: "border-orange-200",
+      features: [
+        "Planned Development",
+        "Knowledge Park",
+        "Industrial Corridor",
+        "Green Spaces"
+      ],
+      topAreas: ["Alpha", "Beta", "Gamma", "Delta Sectors"]
+    }
+  ];
+
+  const stats = [
+    { icon: <Shield className="w-8 h-8" />, value: "5000+", label: "Properties Listed" },
+    { icon: <Users className="w-8 h-8" />, value: "98%", label: "Client Satisfaction" },
+    { icon: <DollarSign className="w-8 h-8" />, value: "₹200Cr+", label: "Property Value" },
+    { icon: <MapPin className="w-8 h-8" />, value: "50+", label: "Localities Covered" }
+  ];
   return (
     <>
     <div
@@ -686,6 +799,392 @@ const [hoveredCard, setHoveredCard] = useState(null);
                 Get Location-Based Recommendations
               </button>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    {/* 3rd */}
+     <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-50 to-white">
+      <div className="max-w-7xl mx-auto">
+        {/* Section Header */}
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            Why Choose <span className="text-blue-600">Us</span>
+          </h2>
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            We are committed to making your real estate journey seamless, secure, and rewarding with our premium services
+          </p>
+        </div>
+
+        {/* Features Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {features.map((feature) => (
+            <div 
+              key={feature.id} 
+              className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 border border-gray-100 hover:-translate-y-2"
+            >
+              {/* Icon with gradient background */}
+              <div className={`inline-flex items-center justify-center p-3 rounded-lg bg-gradient-to-r ${feature.gradient} text-white mb-6`}>
+                {feature.icon}
+              </div>
+              
+              {/* Title */}
+              <h3 className="text-xl font-bold text-gray-900 mb-3">
+                {feature.title}
+              </h3>
+              
+              {/* Description */}
+              <p className="text-gray-600">
+                {feature.description}
+              </p>
+              
+              {/* Decorative bottom border */}
+              <div className={`h-1 w-20 mt-6 rounded-full bg-gradient-to-r ${feature.gradient}`}></div>
+            </div>
+          ))}
+        </div>
+
+        {/* Stats Section */}
+        <div className="mt-16 bg-gradient-to-r from-blue-600 to-indigo-700 rounded-2xl p-8 text-white">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div className="text-center">
+              <div className="text-3xl md:text-4xl font-bold mb-2">10,000+</div>
+              <div className="text-blue-100">Verified Properties</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl md:text-4xl font-bold mb-2">100%</div>
+              <div className="text-blue-100">RERA Compliance</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl md:text-4xl font-bold mb-2">₹50Cr+</div>
+              <div className="text-blue-100">Client Savings</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl md:text-4xl font-bold mb-2">200+</div>
+              <div className="text-blue-100">Property Experts</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* 4th */}
+    <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900 relative overflow-hidden">
+      {/* Background decorative elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-700 rounded-full mix-blend-multiply filter blur-3xl opacity-30"></div>
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-indigo-700 rounded-full mix-blend-multiply filter blur-3xl opacity-30"></div>
+      </div>
+      
+      <div className="max-w-6xl mx-auto relative z-10">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-10">
+          {/* Left Content */}
+          <div className="lg:w-1/2 text-center lg:text-left">
+            <div className="inline-flex items-center gap-2 bg-blue-800/30 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
+              <MapPin className="w-4 h-4 text-blue-300" />
+              <span className="text-blue-200 text-sm font-medium">Delhi NCR Region</span>
+            </div>
+            
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+              Looking for <span className="text-amber-400">Property in Delhi NCR</span>?
+            </h2>
+            
+            <p className="text-xl text-blue-100 mb-8 max-w-2xl">
+              Find your dream home, office, or investment property with expert guidance. 
+              Connect with our Delhi NCR specialists today!
+            </p>
+            
+            {/* Stats */}
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mt-10">
+              <div className="text-center">
+                <div className="text-3xl font-bold text-white mb-1">5000+</div>
+                <div className="text-blue-200 text-sm">Properties Listed</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-white mb-1">98%</div>
+                <div className="text-blue-200 text-sm">Client Satisfaction</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-white mb-1">24/7</div>
+                <div className="text-blue-200 text-sm">Expert Support</div>
+              </div>
+            </div>
+          </div>
+          
+          {/* Right Content - CTA Card */}
+          <div className="lg:w-1/2 w-full max-w-lg">
+            <div className="bg-white rounded-2xl shadow-2xl p-8 md:p-10">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
+                Get Instant Assistance
+              </h3>
+              
+              {/* Buttons */}
+              <div className="space-y-4 mb-8">
+                {/* Call Now Button */}
+                <a 
+                  href="tel:+911234567890"
+                  className="flex items-center justify-center gap-3 w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-4 px-6 rounded-xl transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg group"
+                >
+                  <Phone className="w-5 h-5" />
+                  <span>Call Now: +91 123 456 7890</span>
+                  <ArrowRight className="w-5 h-5 ml-auto opacity-0 group-hover:opacity-100 transition-opacity" />
+                </a>
+                
+                {/* WhatsApp Button */}
+                <a 
+                  href="https://wa.me/911234567890?text=Hi,%20I'm%20interested%20in%20properties%20in%20Delhi%20NCR"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-3 w-full bg-emerald-500 hover:bg-emerald-600 text-white font-semibold py-4 px-6 rounded-xl transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg group"
+                >
+                  <MessageCircle className="w-5 h-5" />
+                  <span>Chat on WhatsApp</span>
+                  <ArrowRight className="w-5 h-5 ml-auto opacity-0 group-hover:opacity-100 transition-opacity" />
+                </a>
+                
+                {/* Free Consultation Button */}
+                <a 
+                  href="#consultation-form"
+                  className="flex items-center justify-center gap-3 w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-6 rounded-xl transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg group"
+                >
+                  <Calendar className="w-5 h-5" />
+                  <span>Get Free Consultation</span>
+                  <ArrowRight className="w-5 h-5 ml-auto opacity-0 group-hover:opacity-100 transition-opacity" />
+                </a>
+              </div>
+              
+              {/* Trust Badges */}
+              <div className="flex flex-wrap items-center justify-center gap-6 pt-6 border-t border-gray-200">
+                <div className="flex items-center gap-2">
+                  <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
+                    <svg className="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                  <span className="text-sm text-gray-600">No Hidden Charges</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
+                    <svg className="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                  <span className="text-sm text-gray-600">RERA Certified</span>
+                </div>
+              </div>
+              
+              {/* Quick Contact Note */}
+              <p className="text-center text-gray-500 text-sm mt-6">
+                Our experts will contact you within 30 minutes
+              </p>
+            </div>
+            
+            {/* Cities in Delhi NCR */}
+            <div className="mt-6 flex flex-wrap justify-center gap-3">
+              {['Delhi', 'Gurgaon', 'Noida', 'Faridabad', 'Ghaziabad', 'Greater Noida'].map((city) => (
+                <span 
+                  key={city} 
+                  className="px-4 py-2 bg-white/10 backdrop-blur-sm text-white rounded-full text-sm border border-white/20"
+                >
+                  {city}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    {/* 5th */}
+    <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-gray-50">
+      <div className="max-w-7xl mx-auto">
+        {/* Header Section */}
+        <div className="text-center mb-12">
+          <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 px-4 py-2 rounded-full mb-4">
+            <MapPin className="w-4 h-4" />
+            <span className="text-sm font-medium">Delhi NCR Region</span>
+          </div>
+          
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            Our <span className="text-blue-600">Service Locations</span>
+          </h2>
+          
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            Explore prime real estate opportunities across Delhi NCR's most promising locations with our expert guidance
+          </p>
+        </div>
+
+        {/* Stats Bar */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+          {stats.map((stat, index) => (
+            <div 
+              key={index} 
+              className="bg-white rounded-xl p-6 shadow-md border border-gray-100 text-center hover:shadow-lg transition-shadow"
+            >
+              <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-blue-100 text-blue-600 mb-4">
+                {stat.icon}
+              </div>
+              <div className="text-2xl md:text-3xl font-bold text-gray-900 mb-1">{stat.value}</div>
+              <div className="text-gray-600 text-sm">{stat.label}</div>
+            </div>
+          ))}
+        </div>
+
+        {/* Location Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+          {locations1.map((location) => (
+            <div 
+              key={location.id} 
+              className={`${location.bgColor} rounded-2xl overflow-hidden border ${location.borderColor} hover:shadow-xl transition-all duration-300 hover:-translate-y-2`}
+            >
+              {/* Card Header */}
+              <div className={`p-6 bg-gradient-to-r ${location.color} text-white`}>
+                <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center">
+                      {location.icon}
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-bold">{location.name}</h3>
+                      <p className="text-white/80 text-sm">Premium Properties</p>
+                    </div>
+                  </div>
+                  <div className="text-right">
+                    <div className="text-3xl font-bold">{location.growthRate}</div>
+                    <div className="text-sm opacity-80">YoY Growth</div>
+                  </div>
+                </div>
+                
+                <p className="text-white/90">{location.description}</p>
+              </div>
+              
+              {/* Card Body */}
+              <div className="p-6">
+                {/* Quick Stats */}
+                <div className="grid grid-cols-2 gap-4 mb-6">
+                  <div className="bg-white rounded-lg p-4 text-center shadow-sm">
+                    <div className="text-sm text-gray-500 mb-1">Properties</div>
+                    <div className="text-xl font-bold text-gray-900">{location.propertyCount}</div>
+                  </div>
+                  <div className="bg-white rounded-lg p-4 text-center shadow-sm">
+                    <div className="text-sm text-gray-500 mb-1">Price Range</div>
+                    <div className="text-xl font-bold text-gray-900">{location.avgPrice}</div>
+                  </div>
+                </div>
+                
+                {/* Features */}
+                <div className="mb-6">
+                  <h4 className="font-semibold text-gray-900 mb-3">Key Features</h4>
+                  <div className="space-y-2">
+                    {location.features.map((feature, index) => (
+                      <div key={index} className="flex items-center gap-2">
+                        <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${location.color}`}></div>
+                        <span className="text-gray-700">{feature}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                
+                {/* Top Areas */}
+                <div className="mb-6">
+                  <h4 className="font-semibold text-gray-900 mb-3">Top Areas</h4>
+                  <div className="flex flex-wrap gap-2">
+                    {location.topAreas.map((area, index) => (
+                      <span 
+                        key={index}
+                        className={`px-3 py-1.5 text-sm rounded-full border ${location.borderColor} bg-white`}
+                      >
+                        {area}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                
+                {/* CTA Button */}
+                <button className={`w-full py-3 rounded-xl bg-gradient-to-r ${location.color} text-white font-semibold hover:shadow-lg transition-all duration-300 transform hover:scale-[1.02]`}>
+                  Explore {location.name} Properties
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Comparison Table */}
+        <div className="bg-white rounded-2xl shadow-lg p-6 md:p-8 border border-gray-200">
+          <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
+            Location Comparison
+          </h3>
+          
+          <div className="overflow-x-auto">
+            <table className="w-full">
+              <thead>
+                <tr className="border-b border-gray-200">
+                  <th className="text-left py-4 px-4 font-semibold text-gray-700">Parameters</th>
+                  <th className="text-center py-4 px-4 font-semibold text-blue-600">Noida</th>
+                  <th className="text-center py-4 px-4 font-semibold text-green-600">Ghaziabad</th>
+                  <th className="text-center py-4 px-4 font-semibold text-orange-600">Greater Noida</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-b border-gray-100">
+                  <td className="py-4 px-4 text-gray-700">Infrastructure</td>
+                  <td className="text-center py-4 px-4">
+                    <span className="inline-flex items-center justify-center w-8 h-8 bg-blue-100 text-blue-600 rounded-full">A+</span>
+                  </td>
+                  <td className="text-center py-4 px-4">
+                    <span className="inline-flex items-center justify-center w-8 h-8 bg-green-100 text-green-600 rounded-full">B+</span>
+                  </td>
+                  <td className="text-center py-4 px-4">
+                    <span className="inline-flex items-center justify-center w-8 h-8 bg-orange-100 text-orange-600 rounded-full">A-</span>
+                  </td>
+                </tr>
+                <tr className="border-b border-gray-100">
+                  <td className="py-4 px-4 text-gray-700">Connectivity</td>
+                  <td className="text-center py-4 px-4">
+                    <span className="inline-flex items-center justify-center w-8 h-8 bg-blue-100 text-blue-600 rounded-full">A+</span>
+                  </td>
+                  <td className="text-center py-4 px-4">
+                    <span className="inline-flex items-center justify-center w-8 h-8 bg-green-100 text-green-600 rounded-full">A-</span>
+                  </td>
+                  <td className="text-center py-4 px-4">
+                    <span className="inline-flex items-center justify-center w-8 h-8 bg-orange-100 text-orange-600 rounded-full">B+</span>
+                  </td>
+                </tr>
+                <tr className="border-b border-gray-100">
+                  <td className="py-4 px-4 text-gray-700">Affordability</td>
+                  <td className="text-center py-4 px-4">
+                    <span className="inline-flex items-center justify-center w-8 h-8 bg-blue-100 text-blue-600 rounded-full">B-</span>
+                  </td>
+                  <td className="text-center py-4 px-4">
+                    <span className="inline-flex items-center justify-center w-8 h-8 bg-green-100 text-green-600 rounded-full">A+</span>
+                  </td>
+                  <td className="text-center py-4 px-4">
+                    <span className="inline-flex items-center justify-center w-8 h-8 bg-orange-100 text-orange-600 rounded-full">A</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td className="py-4 px-4 text-gray-700">Growth Potential</td>
+                  <td className="text-center py-4 px-4">
+                    <span className="inline-flex items-center justify-center w-8 h-8 bg-blue-100 text-blue-600 rounded-full">A</span>
+                  </td>
+                  <td className="text-center py-4 px-4">
+                    <span className="inline-flex items-center justify-center w-8 h-8 bg-green-100 text-green-600 rounded-full">A-</span>
+                  </td>
+                  <td className="text-center py-4 px-4">
+                    <span className="inline-flex items-center justify-center w-8 h-8 bg-orange-100 text-orange-600 rounded-full">A+</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          
+          <div className="mt-8 text-center">
+            <p className="text-gray-600 mb-4">
+              Not sure which location is best for you? Let our experts guide you.
+            </p>
+            <button className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-xl transition-colors">
+              <MapPin className="w-5 h-5" />
+              Book Location Consultation
+            </button>
           </div>
         </div>
       </div>
