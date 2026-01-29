@@ -1287,6 +1287,7 @@ const features: Feature[] = [
 
   return (
     <>
+    {/* 1st */}
        <section className="relative min-h-[75vh] bg-gray-900 overflow-hidden">
 
       {/* Background */}
@@ -1326,41 +1327,70 @@ const features: Feature[] = [
             </p>
 
             {/* FORM (SOLID WHITE) */}
-            <div className="bg-white rounded-2xl shadow-xl p-5">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+           <div className="bg-white rounded-2xl shadow-xl p-4 sm:p-5">
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
 
-                <input
-                  type="text"
-                  placeholder="Full Name"
-                  className="input-style"
-                />
+    {/* Full Name */}
+    <div className="flex flex-col gap-1">
+      <label className="text-sm font-medium text-gray-700">
+        Full Name
+      </label>
+      <input
+        type="text"
+        placeholder="Enter your name"
+        className="input-style"
+      />
+    </div>
 
-                <input
-                  type="tel"
-                  placeholder="Mobile Number"
-                  className="input-style"
-                />
+    {/* Mobile Number */}
+    <div className="flex flex-col gap-1">
+      <label className="text-sm font-medium text-gray-700">
+        Mobile Number
+      </label>
+      <input
+        type="tel"
+        placeholder="Enter mobile number"
+        className="input-style"
+      />
+    </div>
 
-                <select className="input-style">
-                  <option>Property Type</option>
-                  <option>Apartment</option>
-                  <option>Villa</option>
-                  <option>Plot</option>
-                </select>
+    {/* Property Type */}
+    <div className="flex flex-col gap-1">
+      <label className="text-sm font-medium text-gray-700">
+        Property Type
+      </label>
+      <select className="input-style">
+        <option>Select type</option>
+        <option>Apartment</option>
+        <option>Villa</option>
+        <option>Plot</option>
+      </select>
+    </div>
 
-                <select className="input-style">
-                  <option>Budget</option>
-                  <option>₹20L - ₹50L</option>
-                  <option>₹50L - ₹1Cr</option>
-                  <option>₹1Cr+</option>
-                </select>
+    {/* Budget */}
+    <div className="flex flex-col gap-1">
+      <label className="text-sm font-medium text-gray-700">
+        Budget
+      </label>
+      <select className="input-style">
+        <option>Select budget</option>
+        <option>₹20L - ₹50L</option>
+        <option>₹50L - ₹1Cr</option>
+        <option>₹1Cr+</option>
+      </select>
+    </div>
 
-                <button className="flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-600 px-6 py-3 font-semibold text-white hover:shadow-lg">
-                  <MagnifyingGlassIcon className="h-5 w-5" />
-                  Search
-                </button>
-              </div>
-            </div>
+    {/* Button */}
+    <div className="flex flex-col justify-end">
+      <button className="w-full flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-600 px-6 py-3 font-semibold text-white hover:shadow-lg">
+        <MagnifyingGlassIcon className="h-5 w-5" />
+        Search
+      </button>
+    </div>
+
+  </div>
+</div>
+
 
           </div>
         </div>
