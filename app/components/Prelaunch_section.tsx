@@ -46,98 +46,94 @@ export default function PreLaunchProjectsSlider() {
   const projects: Project[] = [
   {
     id: 1,
-    title: "Skyline Residences",
-    location: "Noida Sector 150",
-    price: "₹2.5 Cr",
-    area: "2,500 sq.ft",
-    image: "/images/jason-dent-w3eFhqXjkZE-unsplash.jpg", // ✅
+    title: "SVG Town Square 2",
+    location: "Alpha 2, Greater Noida",
+    price: "₹22,990 / sq.ft onwards",
+    area: "270 – 915 sq.ft (Retail)",
+    image: "/images/jason-dent-w3eFhqXjkZE-unsplash.jpg",
     status: "Pre-Launch",
-    progress: 35,
-    developer: "Emaar Properties",
-    launchDate: "2024-09-15",
-    rating: 4.8,
+    progress: 20,
+    developer: "Shri Vinayaka Group",
+    launchDate: "2025-02-15",
+    rating: 4.7,
     isTrending: true,
-    unitsLeft: 12,
-    features: ["Swimming Pool", "Gym", "Park"]
+    unitsLeft: 40,
+    features: [
+      "Double Height Retail",
+      "Metro Connectivity (200m)",
+      "Infinity Pool",
+      "Rooftop Dining",
+      "Pre-Leased Shops"
+    ]
   },
+
   {
     id: 2,
-    title: "Oceanfront Villas",
+    title: "SVG Town Square 2 – Premium Suites",
+    location: "Alpha 2, Greater Noida",
+    price: "₹11,490 / sq.ft onwards",
+    area: "668 – 1440 sq.ft",
+    image: "/images/dillon-kydd-2keCPb73aQY-unsplash.jpg",
+    status: "Pre-Launch",
+    progress: 18,
+    developer: "Shri Vinayaka Group",
+    launchDate: "2025-02-15",
+    rating: 4.6,
+    isTrending: true,
+    unitsLeft: 95,
+    features: [
+      "Serviced Suites",
+      "High Rental Yield",
+      "19 Units Per Floor",
+      "Premium Amenities"
+    ]
+  },
+
+  {
+    id: 3,
+    title: "Godrej Arden",
+    location: "Greater Noida",
+    price: "₹1.63 Cr onwards",
+    area: "1375 – 2700 sq.ft",
+    image: "/images/francesca-tosolini-tHkJAMcO3QE-unsplash.jpg",
+    status: "Pre-Launch",
+    progress: 25,
+    developer: "Godrej Properties",
+    launchDate: "2025-03-10",
+    rating: 4.8,
+    isTrending: true,
+    unitsLeft: 120,
+    features: [
+      "9.58 Acres Land Parcel",
+      "45,000 sq.ft Clubhouse",
+      "4 Side Open Project",
+      "Green Belt Living"
+    ]
+  },
+
+  {
+    id: 4,
+    title: "Tribeca Iconic Tower – Aspire Leisure Valley",
     location: "Noida Extension",
-    price: "₹3.9 Cr",
-    area: "5,200 sq.ft",
-    image: "/images/dillon-kydd-2keCPb73aQY-unsplash.jpg", // ✅
-    status: "Coming Soon",
+    price: "₹8,449 / sq.ft",
+    area: "4020 sq.ft",
+    image: "/images/danist-soh-GqaOP6wsCQ0-unsplash.jpg",
+    status: "Pre-Launch",
     progress: 15,
-    developer: "Sobha Group",
-    launchDate: "2024-10-20",
+    developer: "Tribeca Developers (NBCC)",
+    launchDate: "2025-01-30",
     rating: 4.9,
     isTrending: true,
-    unitsLeft: 8,
-    features: ["Private Garden", "Club House"]
-  },
-  { 
-    id: 3, 
-    title: "Urban Lofts", 
-    location: "Business Bay", 
-    price: "AED 1.8M", 
-    area: "1,850 sq.ft", 
-    image: "/images/francesca-tosolini-tHkJAMcO3QE-unsplash.jpg",
-    status: "Early Bird", 
-    progress: 60, 
-    developer: "Damac", 
-    launchDate: "2024-08-30", 
-    rating: 4.5, 
-    isTrending: false, 
-    unitsLeft: 24, 
-    features: ["City View", "Smart Home", "Concierge"] 
-  }, 
-  { id: 4, 
-    title: "Green Valley Apartments", 
-    location: "Jumeirah Village Circle", 
-    price: "AED 1.2M", 
-    area: "1,400 sq.ft", 
-    image: "/images/danist-soh-GqaOP6wsCQ0-unsplash.jpg",
-    status: "Pre-Launch", 
-    progress: 25, 
-    developer: "Noida",
-    launchDate: "2024-11-10", 
-    rating: 4.6, 
-    isTrending: true, 
-    unitsLeft: 36, 
-    features: ["Green Spaces", "Cycling Track", "Community Center"] 
-  }, 
-  { id: 5, 
-    title: "Luxury Penthouses", 
-    location: "Noida", 
-    price: "AED 12.5M", 
-    area: "6,800 sq.ft", 
-    image: "/images/avi-waxman-f9qZuKoZYoY-unsplash.jpg",
-    status: "Exclusive", 
-    progress: 45, 
-    developer: "Sobha Realty", 
-    launchDate: "2024-09-05", 
-    rating: 4.9, 
-    isTrending: false, 
-    unitsLeft: 4, 
-    features: ["Private Pool", "Panoramic View", "Helipad Access"] 
-  }, 
-  { id: 6, 
-    title: "Family Townhouses", 
-    location: "Arabian Ranches", 
-    price: "AED 3.2M", 
-    area: "3,100 sq.ft",
-    image: "/images/francesca-tosolini-lLDh9JppH2c-unsplash.jpg", 
-    status: "Pre-Launch", 
-    progress: 20, 
-    developer: "Emaar", 
-    launchDate: "2024-10-15", 
-    rating: 4.7, 
-    isTrending: true, 
-    unitsLeft: 18, 
-    features: ["Private Garden", "BBQ Area", "Pet Friendly"] 
+    unitsLeft: 25,
+    features: [
+      "G+45 Iconic Tower",
+      "Chapman Taylor Design",
+      "Supreme Court Supervised",
+      "Ultra Luxury Residences"
+    ]
   }
 ];
+
 
 
   const getStatusColor = (status: Project['status']) => {

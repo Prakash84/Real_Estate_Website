@@ -236,126 +236,140 @@ export default function Home() {
     );
   };
 
-  const properties: Property[] = [
-    {
-      id: 1,
-      title: "Luxury Penthouse in Golf Links",
-      location: "Golf Links, South Delhi",
-      price: "₹12.5 Cr",
-      pricePerSqft: "₹1,25,000/sqft",
-      sqft: "10,000 sqft",
-      bedrooms: 4,
-      bathrooms: 5,
-      image: "https://images.unsplash.com/photo-1613977257363-707ba9348227?w=600",
-      featured: true,
-      amenities: ["Swimming Pool", "Gym", "24/7 Security", "Parking"]
-    },
-    {
-      id: 2,
-      title: "Modern Villa in Gurugram",
-      location: "DLF Phase 5, Gurugram",
-      price: "₹8.75 Cr",
-      pricePerSqft: "₹95,000/sqft",
-      sqft: "9,200 sqft",
-      bedrooms: 5,
-      bathrooms: 4,
-      image: "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?w=600",
-      featured: true,
-      amenities: ["Private Garden", "Home Theater", "Smart Home", "Pool"]
-    },
-    {
-      id: 3,
-      title: "Sky Villa in Noida",
-      location: "Sector 150, Noida",
-      price: "₹6.2 Cr",
-      pricePerSqft: "₹82,000/sqft",
-      sqft: "7,560 sqft",
-      bedrooms: 3,
-      bathrooms: 3,
-      // image: "https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=600",
-      image: "/images/webaliser-_TPTXZd9mOo-unsplash.jpg",
-      featured: false,
-      amenities: ["City View", "Concierge", "Fitness Center", "Balcony"]
-    },
-    {
-      id: 4,
-      title: "Heritage Haveli in Delhi",
-      location: "Civil Lines, Central Delhi",
-      price: "₹15.8 Cr",
-      pricePerSqft: "₹1,80,000/sqft",
-      sqft: "8,800 sqft",
-      bedrooms: 6,
-      bathrooms: 5,
-      image: "https://images.unsplash.com/photo-1588880331179-bc9b93a8cb5e?w=600",
-      featured: true,
-      amenities: ["Heritage", "Large Garden", "Servant Quarters", "Parking"]
-    },
-    {
-      id: 5,
-      title: "Tech Park Residency",
-      location: "Cyber City, Gurugram",
-      price: "₹4.5 Cr",
-      pricePerSqft: "₹65,000/sqft",
-      sqft: "6,920 sqft",
-      bedrooms: 3,
-      bathrooms: 2,
-      image: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600",
-      featured: false,
-      amenities: ["Tech Enabled", "Co-working", "Cafeteria", "Security"]
-    },
-    {
-      id: 6,
-      title: "Golf View Apartment",
-      location: "Sector 43, Gurugram",
-      price: "₹7.8 Cr",
-      pricePerSqft: "₹1,10,000/sqft",
-      sqft: "7,100 sqft",
-      bedrooms: 4,
-      bathrooms: 3,
-      image: "https://images.unsplash.com/photo-1574362848149-11496d93a7c7?w=600",
-      featured: true,
-      amenities: ["Golf View", "Club House", "Pool", "Garden"]
-    },
-    // {
-    //   id: 7,
-    //   title: "Executive Suite in Faridabad",
-    //   location: "Sector 21, Faridabad",
-    //   price: "₹3.2 Cr",
-    //   pricePerSqft: "₹45,000/sqft",
-    //   sqft: "7,110 sqft",
-    //   bedrooms: 3,
-    //   bathrooms: 2,
-    //   image: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=600",
-    //   featured: false,
-    //   amenities: ["Modular Kitchen", "Park", "Power Backup", "Security"]
-    // },
-    // {
-    //   id: 8,
-    //   title: "Luxury Farmhouse",
-    //   location: "Chhatarpur, South Delhi",
-    //   price: "₹22.5 Cr",
-    //   pricePerSqft: "₹2,50,000/sqft",
-    //   sqft: "9,000 sqft",
-    //   bedrooms: 5,
-    //   bathrooms: 6,
-    //   image: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=600",
-    //   featured: true,
-    //   amenities: ["Private Pool", "Farmland", "Staff Quarters", "Garage"]
-    // },
-    // {
-    //   id: 9,
-    //   title: "Riverfront Villa",
-    //   location: "Yamuna Expressway, Noida",
-    //   price: "₹9.8 Cr",
-    //   pricePerSqft: "₹1,05,000/sqft",
-    //   sqft: "9,330 sqft",
-    //   bedrooms: 4,
-    //   bathrooms: 4,
-    //   image: "https://images.unsplash.com/photo-1605146769289-440113cc3d00?w=600",
-    //   featured: true,
-    //   amenities: ["River View", "Private Beach", "Boat Dock", "Garden"]
-    // }
-  ];
+const properties: Property[] = [
+  // ===============================
+  // SHRI VINAYAKA GROUP – RETAIL
+  // ===============================
+  {
+    id: 1,
+    title: "SVG Galleria",
+    location: "Greater Noida",
+    price: "₹22,990 / sqft onwards",
+    pricePerSqft: "₹22,990/sqft",
+    sqft: "270 – 915 sqft",
+    bedrooms: 0,
+    bathrooms: 0,
+    image: "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?w=600",
+    featured: true,
+    amenities: [
+      "Retail Shops",
+      "Pre-Leased Options",
+      "Road Facing",
+      "Corner Shops",
+      "High Footfall"
+    ]
+  },
+
+  {
+    id: 2,
+    title: "SVG Heights",
+    location: "Greater Noida",
+    price: "₹11,490 / sqft onwards",
+    pricePerSqft: "₹11,490/sqft",
+    sqft: "668 – 1440 sqft",
+    bedrooms: 1,
+    bathrooms: 1,
+    image: "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?w=600",
+    featured: false,
+    amenities: [
+      "Serviced Suites",
+      "Premium Living",
+      "Elevator Access",
+      "Security"
+    ]
+  },
+
+  // ===============================
+  // SVG TOWN SQUARE 2 – NEW LAUNCH
+  // ===============================
+  {
+    id: 3,
+    title: "SVG Town Square 2",
+    location: "Alpha 2, Greater Noida (200m from Delta 1 Metro)",
+    price: "₹22,990 / sqft onwards",
+    pricePerSqft: "₹22,990/sqft",
+    sqft: "270 – 915 sqft",
+    bedrooms: 0,
+    bathrooms: 0,
+    image: "https://images.unsplash.com/photo-1613977257363-707ba9348227?w=600",
+    featured: true,
+    amenities: [
+      "Double Height Retail",
+      "Banquet Hall",
+      "Gym",
+      "Private Theatre",
+      "Rooftop Dining",
+      "Infinity Pool"
+    ]
+  },
+
+  {
+    id: 4,
+    title: "SVG Town Square 2 – Premium Suites",
+    location: "Alpha 2, Greater Noida",
+    price: "₹11,490 / sqft onwards",
+    pricePerSqft: "₹11,490/sqft",
+    sqft: "668 – 1440 sqft",
+    bedrooms: 1,
+    bathrooms: 1,
+    image: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600",
+    featured: true,
+    amenities: [
+      "Premium Suites",
+      "19 Units Per Floor",
+      "Serviced Living",
+      "High ROI"
+    ]
+  },
+
+  // ===============================
+  // GODREJ ARDEN – RESIDENTIAL
+  // ===============================
+  {
+    id: 5,
+    title: "Godrej Arden",
+    location: "Greater Noida",
+    price: "₹1.63 Cr onwards",
+    pricePerSqft: "₹11,812/sqft",
+    sqft: "1375 – 2700 sqft",
+    bedrooms: 4,
+    bathrooms: 4,
+    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600",
+    featured: true,
+    amenities: [
+      "9.58 Acres Land",
+      "45,000 sqft Clubhouse",
+      "4 Side Open Plot",
+      "Green Belt",
+      "Luxury Living"
+    ]
+  },
+
+  // ===============================
+  // TRIBECA – ICONIC TOWER
+  // ===============================
+  {
+    id: 6,
+    title: "Tribeca Iconic Tower – Aspire Leisure Valley",
+    location: "Noida Extension",
+    price: "₹8,449 / sqft",
+    pricePerSqft: "₹8,449/sqft",
+    sqft: "4020 sqft",
+    bedrooms: 4,
+    bathrooms: 5,
+    image: "https://images.unsplash.com/photo-1574362848149-11496d93a7c7?w=600",
+    featured: true,
+    amenities: [
+      "G+45 Floors",
+      "4 Units Per Floor",
+      "Chapman Taylor Design",
+      "NBCC Execution",
+      "Supreme Court Supervised"
+    ]
+  }
+];
+
+
   ///3rd 
   const locations: Location[] = [
     // {
