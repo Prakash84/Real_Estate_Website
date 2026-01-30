@@ -79,9 +79,9 @@ export default function Navbar() {
 
             {/* LOGO */}
             <Link href="/" className="flex items-center">
-              <div className="relative w-40 h-12">
+              <div className="relative w-44 h-36">
                 <Image
-                  src="/images/logo.png"
+                  src="/images/reallogoo1.webp"
                   alt="PropertyDeals Logo"
                   fill
                   className="object-contain"
@@ -89,6 +89,7 @@ export default function Navbar() {
                 />
               </div>
             </Link>
+
 
             {/* DESKTOP MENU */}
             <div className="hidden lg:flex items-center space-x-1">
@@ -143,9 +144,9 @@ export default function Navbar() {
 
             {/* DESKTOP CTA */}
             <div className="hidden lg:flex items-center gap-4">
-              <Link href="tel:+919876543210" className="flex items-center gap-2 text-gray-700 hover:text-blue-600">
+              <Link href="tel:+919217042753" className="flex items-center gap-2 text-gray-700 hover:text-blue-600">
                 <PhoneIcon className="h-5 w-5" />
-                <span>+91 98765 43210</span>
+                <span>+91 92170 42753</span>
               </Link>
               <Link href="/contect_us" className="bg-blue-600 text-white px-6 py-2.5 rounded-lg font-semibold hover:bg-blue-700">
                 Get Consultation

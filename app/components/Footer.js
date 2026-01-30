@@ -118,9 +118,9 @@ export default function Footer() {
                   <Link href="/" className="flex items-center gap-3">
                     
                     {/* Logo Image */}
-                    <div className="w-45 h-30 relative">
+                    <div className="w-55 h-4 0 relative">
                       <Image
-                        src="/images/logo.png"
+                        src="/images/reallogoo1.webp"
                         alt="PropertyDeals Logo"
                         fill
                         className="object-contain"
